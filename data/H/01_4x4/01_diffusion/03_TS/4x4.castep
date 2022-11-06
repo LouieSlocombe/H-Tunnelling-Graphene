@@ -1,0 +1,2941 @@
+ +-------------------------------------------------+
+ |                                                 |
+ |      CCC   AA    SSS  TTTTT  EEEEE  PPPP        |
+ |     C     A  A  S       T    E      P   P       |
+ |     C     AAAA   SS     T    EEE    PPPP        |
+ |     C     A  A     S    T    E      P           |
+ |      CCC  A  A  SSS     T    EEEEE  P           |
+ |                                                 |
+ +-------------------------------------------------+
+ |                                                 |
+ | Welcome to Academic Release CASTEP version 21.11|          
+ | Ab Initio Total Energy Program                  |
+ |                                                 |
+ | Authors:                                        |
+ | M. Segall, M. Probert, C. Pickard, P. Hasnip,   |
+ | S. Clark, K. Refson, J. R. Yates, M. Payne      |
+ |                                                 |
+ | Contributors:                                   |
+ | P. Lindan, P. Haynes, J. White, V. Milman,      |
+ | N. Govind, M. Gibson, P. Tulip, V. Cocula,      |
+ | B. Montanari, D. Quigley, M. Glover,            |
+ | L. Bernasconi, A. Perlov, M. Plummer,           |
+ | E. McNellis, J. Meyer, J. Gale, D. Jochym       |
+ | J. Aarons, B. Walker, R. Gillen, D. Jones       |
+ | T. Green, I. J. Bush, C. J. Armstrong,          |
+ | E. J. Higgins, E. L. Brown, M. S. McFly,        |
+ | J. Wilkins, B-C. Shih, P. J. P. Byrne,          |
+ | R. J. Maurer, J. C. Womack, J. Dziedzic,        |
+ | A. Bartok-Partay, L. LeBlanc                    |
+ |                                                 |
+ | Copyright (c) 2000 - 2021                       |
+ |                                                 |
+ |     Distributed under license from Cambridge    |
+ |     Enterprise for academic use only.           |
+ |                                                 |
+ | Please cite                                     |
+ |                                                 |
+ |     "First principles methods using CASTEP"     |
+ |                                                 |
+ |         Zeitschrift fuer Kristallographie       |
+ |           220(5-6) pp. 567-570 (2005)           |
+ |                                                 |
+ | S. J. Clark, M. D. Segall, C. J. Pickard,       |
+ | P. J. Hasnip, M. J. Probert, K. Refson,         |
+ | M. C. Payne                                     |
+ |                                                 |
+ |       in all publications arising from          |
+ |              your use of CASTEP                 |
+ |                                                 |
+ +-------------------------------------------------+
+ |                                                 |
+ |              http://www.castep.org              |
+ |                                                 |
+ +-------------------------------------------------+
+ 
+ 
+ 
+ Compiled for linux_x86_64_cray-XT on Tue, 01 Mar 2022 09:19:15 +0000
+ from code version 7d4405a8a+  HEAD  Sat Nov 27 13:38:33 2021 +0000
+ Compiler: Cray Fortran 12.0.3; Optimisation: fast
+ MATHLIBS: LibSci (LAPACK version 3.6.1)
+ FFT Lib : fftw3 version commercial-fftw-3.3.8-sse2-avx-avx2-avx2_128
+ Fundamental constants values: CODATA 2014
+ 
+ Run started: Fri, 28 Oct 2022 14:03:26 -0100
+ 
+ Atomic calculation performed for H: 1s1
+ 
+ Converged in 41 iterations to an ae energy of -12.488 eV
+ 
+   ============================================================                
+   | Pseudopotential Report - Date of generation 28-10-2022   |                
+   ------------------------------------------------------------                
+   | Element: H Ionic charge:  1.00 Level of theory: PBE      |                
+   | Atomic Solver: Koelling-Harmon                           |                
+   |                                                          |                
+   |               Reference Electronic Structure             |                
+   |         Orbital         Occupation         Energy        |                
+   |            1s              1.000           -0.239        |                
+   |                                                          |                
+   |                 Pseudopotential Definition               |                
+   |        Beta     l      e      Rc     scheme   norm       |                
+   |          1      0   -0.239   0.803     qc      1         |                
+   |         loc     1    0.000   0.803     pn      0         |                
+   |                                                          |                
+   | No charge augmentation                                   |                
+   | No partial core correction                               |                
+   ------------------------------------------------------------                
+   | "1|0.8|14|16|19|10N(qc=8)"                               |                
+   ------------------------------------------------------------                
+   |      Author: Chris J. Pickard, Cambridge University      |                
+   ============================================================                
+ 
+ Atomic calculation performed for C: 1s2 2s2 2p2
+ 
+ Converged in 54 iterations to an ae energy of -1027.632 eV
+ 
+   ============================================================                
+   | Pseudopotential Report - Date of generation 28-10-2022   |                
+   ------------------------------------------------------------                
+   | Element: C Ionic charge:  4.00 Level of theory: PBE      |                
+   | Atomic Solver: Koelling-Harmon                           |                
+   |                                                          |                
+   |               Reference Electronic Structure             |                
+   |         Orbital         Occupation         Energy        |                
+   |            2s              2.000           -0.505        |                
+   |            2p              2.000           -0.194        |                
+   |                                                          |                
+   |                 Pseudopotential Definition               |                
+   |        Beta     l      e      Rc     scheme   norm       |                
+   |          1      0   -0.505   1.201     qc      1         |                
+   |         loc     1   -0.194   1.201     qc      1         |                
+   |                                                          |                
+   | No charge augmentation                                   |                
+   | Partial core correction Rc = 0.839                       |                
+   ------------------------------------------------------------                
+   | "1|1.2|17|20|23|20N:21L(qc=8)"                           |                
+   ------------------------------------------------------------                
+   |      Author: Chris J. Pickard, Cambridge University      |                
+   ============================================================                
+ 
+ Pseudo atomic calculation performed for H 1s1
+ 
+ Converged in 12 iterations to a total energy of -12.4790 eV
+ 
+ Pseudo atomic calculation performed for C 2s2 2p2
+ 
+ Converged in 17 iterations to a total energy of -152.4291 eV
+ Calculation parallelised over 128 processes.
+ Data is distributed by G-vector(16-way) and k-point(8-way)
+
+ ************************************ Title ************************************
+ 
+
+ ***************************** General Parameters ******************************
+  
+ output verbosity                               : normal  (1)
+ write checkpoint data to                       : 4x4.check
+ type of calculation                            : transition state search
+ stress calculation                             : off
+ density difference calculation                 : off
+ electron localisation func (ELF) calculation   : off
+ Hirshfeld analysis                             : off
+ polarisation (Berry phase) analysis            : off
+ molecular orbital projected DOS                : off
+ deltaSCF calculation                           : off
+ unlimited duration calculation
+ timing information                             : on
+ memory usage estimate                          : on
+ write extra output files                       : on
+ write final potential to formatted file        : off
+ write final density to formatted file          : off
+ write structure in CELL formatted file         : on
+ write BibTeX reference list                    : on
+ write OTFG pseudopotential files               : on
+ write electrostatic potential file             : on
+ write bands file                               : on
+ checkpoint writing                             : both castep_bin and check files
+  
+ output         length unit                     : A
+ output           mass unit                     : amu
+ output           time unit                     : ps
+ output         charge unit                     : e
+ output           spin unit                     : hbar/2
+ output         energy unit                     : eV
+ output          force unit                     : eV/A
+ output       velocity unit                     : A/ps
+ output       pressure unit                     : GPa
+ output     inv_length unit                     : 1/A
+ output      frequency unit                     : cm-1
+ output force constant unit                     : eV/A**2
+ output         volume unit                     : A**3
+ output   IR intensity unit                     : (D/A)**2/amu
+ output         dipole unit                     : D
+ output         efield unit                     : eV/A/e
+ output        entropy unit                     : J/mol/K
+ output    efield chi2 unit                     : pm/V
+  
+ wavefunctions paging                           : none
+ random number generator seed                   : randomised (140327053)
+ data distribution                              : optimal for this architecture
+ optimization strategy                          : maximize speed(+++)
+
+ *********************** Exchange-Correlation Parameters ***********************
+  
+ using functional                               : Perdew Burke Ernzerhof
+ relativistic treatment                         : Koelling-Harmon
+ DFT+D: Semi-empirical dispersion correction    : on
+ SEDC with                                      : MBD@rsSCS method
+
+ ************************* Pseudopotential Parameters **************************
+  
+ pseudopotential representation                 : reciprocal space
+ <beta|phi> representation                      : reciprocal space
+ spin-orbit coupling                            : off
+
+ **************************** Basis Set Parameters *****************************
+  
+ plane wave basis set cut-off                   :   800.0000   eV
+ size of standard grid                          :     1.7500
+ size of   fine   gmax                          :    25.3584   1/A
+ finite basis set correction                    : none
+
+ **************************** Electronic Parameters ****************************
+  
+ number of  electrons                           :  129.0    
+ net charge of system                           :  0.000    
+ net spin   of system                           :  1.000    
+ number of  up  spins                           :  65.00    
+ number of down spins                           :  64.00    
+ treating system as spin-polarized
+ number of bands                                :         98
+
+ ********************* Electronic Minimization Parameters **********************
+  
+ Method: Treating system as metallic with density mixing treatment of electrons,
+         and number of  SD  steps               :          1
+         and number of  CG  steps               :          4
+  
+ total energy / atom convergence tol.           : 0.1000E-04   eV
+ eigen-energy convergence tolerance             : 0.1000E-05   eV
+ max force / atom convergence tol.              : ignored
+ convergence tolerance window                   :          3   cycles
+ max. number of SCF cycles                      :        200
+ number of fixed-spin iterations                :         10
+ smearing scheme                                : Gaussian
+ smearing width                                 : 0.2000       eV
+ Fermi energy convergence tolerance             : 0.2721E-13   eV
+ periodic dipole correction                     : NONE
+
+ ************************** Density Mixing Parameters **************************
+  
+ density-mixing scheme                          : Pulay
+ max. length of mixing history                  :         20
+ charge density mixing amplitude                : 0.8000    
+   spin density mixing amplitude                :  2.000    
+ cut-off energy for mixing                      :  800.0       eV
+
+ *********************** Population Analysis Parameters ************************
+  
+ Population analysis with cutoff                :  3.000       A
+ Population analysis output                     : summary and pdos components
+
+ ********************* Transition State Search Parameters **********************
+  
+ search method                                  : LSTQST
+ LSTQST protocol                                : COMPLETELSTQST   
+ max. number of QST iterations                  :         60
+ max. number of CG  iterations                  :         60
+ max. ionic |force| tolerance                   : 0.2571       eV/A
+ max. ionic |displacement| tolerance            : 0.1000E-02   A
+
+ *******************************************************************************
+  
+ 
+                           -------------------------------
+                                      Unit Cell
+                           -------------------------------
+        Real Lattice(A)                      Reciprocal Lattice(1/A)
+     9.8800000     0.0000000     0.0000000        0.635949930   0.367165863   0.000000000
+    -4.9400000     8.5563310     0.0000000        0.000000000   0.734331726   0.000000000
+     0.0000000     0.0000000    20.0339000        0.000000000   0.000000000   0.313627666
+ 
+                       Lattice parameters(A)       Cell Angles
+                    a =      9.880000          alpha =   90.000000
+                    b =      9.880000          beta  =   90.000000
+                    c =     20.033900          gamma =  120.000000
+ 
+                       Current cell volume =          1693.596795       A**3
+                                   density =             0.227534   AMU/A**3
+                                           =             0.377829     g/cm^3
+ 
+                           -------------------------------
+                                     Cell Contents
+                           -------------------------------
+                         Total number of ions in cell =   33
+                      Total number of species in cell =    2
+                        Max number of any one species =   32
+ 
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            x                          Reactant                        x
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            x  Element    Atom        Fractional coordinates of atoms  x
+            x            Number           u          v          w      x
+            x----------------------------------------------------------x
+            x  H            1         0.416753   0.333198   0.578198   x 
+            x  C            1         0.165709   0.083576   0.500091   x 
+            x  C            2        -0.000672  -0.000186   0.495898   x 
+            x  C            3         0.165690   0.332150   0.500073   x 
+            x  C            4        -0.000744   0.249447   0.495912   x 
+            x  C            5         0.166751   0.583064   0.498441   x 
+            x  C            6        -0.000475   0.499566   0.497713   x 
+            x  C            7         0.166761   0.834171   0.498470   x 
+            x  C            8        -0.000436   0.750309   0.497716   x 
+            x  C            9         0.417574   0.083532   0.500110   x 
+            x  C           10         0.249586  -0.000486   0.500571   x 
+            x  C           11         0.416530   0.333257   0.521932   x 
+            x  C           12         0.245763   0.247883   0.504331   x 
+            x  C           13         0.417633   0.584139   0.500093   x 
+            x  C           14         0.249562   0.500202   0.500533   x 
+            x  C           15         0.416467   0.833446   0.495947   x 
+            x  C           16         0.250188   0.750379   0.497714   x 
+            x  C           17         0.666766   0.083051   0.494969   x 
+            x  C           18         0.500297  -0.000214   0.495995   x 
+            x  C           19         0.666297   0.332207   0.500137   x 
+            x  C           20         0.501908   0.247873   0.504296   x 
+            x  C           21         0.666303   0.584174   0.500136   x 
+            x  C           22         0.501927   0.504061   0.504333   x 
+            x  C           23         0.666793   0.833731   0.494922   x 
+            x  C           24         0.500347   0.750686   0.495963   x 
+            x  C           25         0.916430   0.083135   0.494879   x 
+            x  C           26         0.750029  -0.000093   0.494200   x 
+            x  C           27         0.916723   0.333416   0.495924   x 
+            x  C           28         0.750120   0.249515   0.495995   x 
+            x  C           29         0.915994   0.583146   0.498497   x 
+            x  C           30         0.750411   0.500262   0.500617   x 
+            x  C           31         0.916674   0.833450   0.495889   x 
+            x  C           32         0.750119   0.750664   0.495946   x 
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ 
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            x                          Product                         x
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            x  Element    Atom        Fractional coordinates of atoms  x
+            x            Number           u          v          w      x
+            x----------------------------------------------------------x
+            x  H            1         0.499904   0.500156   0.578371   x 
+            x  C            1         0.166277   0.082710   0.496042   x 
+            x  C            2        -0.000290  -0.000069   0.496045   x 
+            x  C            3         0.165975   0.333101   0.500752   x 
+            x  C            4         0.000389   0.250227   0.498631   x 
+            x  C            5         0.166297   0.583851   0.496024   x 
+            x  C            6        -0.000319   0.499961   0.496034   x 
+            x  C            7         0.166362   0.833460   0.494282   x 
+            x  C            8        -0.000028   0.750243   0.494987   x 
+            x  C            9         0.416025   0.082676   0.496034   x 
+            x  C           10         0.249585  -0.000368   0.494986   x 
+            x  C           11         0.414476   0.329302   0.504471   x 
+            x  C           12         0.250092   0.249198   0.500244   x 
+            x  C           13         0.414516   0.585473   0.504451   x 
+            x  C           14         0.250115   0.501163   0.500226   x 
+            x  C           15         0.416085   0.833551   0.496014   x 
+            x  C           16         0.249623   0.750309   0.494972   x 
+            x  C           17         0.666170   0.082975   0.497843   x 
+            x  C           18         0.499891  -0.000100   0.496025   x 
+            x  C           19         0.666833   0.333164   0.500735   x 
+            x  C           20         0.498742   0.249202   0.500236   x 
+            x  C           21         0.670673   0.585497   0.504452   x 
+            x  C           22         0.499895   0.500108   0.522100   x 
+            x  C           23         0.666811   0.833856   0.500735   x 
+            x  C           24         0.498806   0.749820   0.500214   x 
+            x  C           25         0.916820   0.083058   0.497873   x 
+            x  C           26         0.749614  -0.000803   0.498617   x 
+            x  C           27         0.916867   0.333818   0.497852   x 
+            x  C           28         0.749628   0.250301   0.498603   x 
+            x  C           29         0.917153   0.583937   0.496030   x 
+            x  C           30         0.750734   0.501229   0.500225   x 
+            x  C           31         0.917074   0.833558   0.496030   x 
+            x  C           32         0.750699   0.749805   0.500224   x 
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ 
+ 
+                         No user defined ionic velocities
+ 
+                           -------------------------------
+                                   Details of Species
+                           -------------------------------
+ 
+                               Mass of species in AMU
+                                    H    1.0079400
+                                    C   12.0107000
+ 
+                          Electric Quadrupole Moment (Barn)
+                                    H    0.0028600 Isotope  2
+                                    C    0.0332700 Isotope 11
+ 
+                          Files used for pseudopotentials:
+                                    H 1|0.8|14|16|19|10N(qc=8)
+                                    C 1|1.2|17|20|23|20N:21L(qc=8)
+ 
+                           -------------------------------
+                              k-Points For BZ Sampling
+                           -------------------------------
+                       MP grid size for SCF calculation is  4  4  1
+                            with an offset of   0.000  0.000  0.000
+                       Number of kpoints used =   8
+ 
+                           -------------------------------
+                               Symmetry and Constraints
+                           -------------------------------
+ 
+                      Maximum deviation from symmetry =  0.00000         ANG
+ 
+                      Number of symmetry operations   = 1
+         There are no ionic constraints specified or generated for this cell
+                      Point group of crystal =     1: C1, 1, 1
+                      Space group of crystal =     1: P1, P 1
+ 
+             Set iprint > 1 for details on symmetry rotations/translations
+ 
+                         Centre of mass is NOT constrained
+ 
+                         Number of cell constraints= 6
+                         Cell constraints are:  0 0 0 0 0 0
+ 
+                         External pressure/stress (GPa)
+                          0.00000   0.00000   0.00000
+                                    0.00000   0.00000
+                                              0.00000
+ 
+                                --------------------
+                                  DFT-D parameters
+                                --------------------
+ 
+                          Dispersion-correction scheme : MBD*      
+                        Parameter sR :   0.830000 (default)
+ 
+        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        x              Atomic DFT-D parameters                             x
+        x  Species      C6            alpha        R0                      x
+        x               eV A^6        A^3          A                       x
+        x------------------------------------------------------------------x
+        x  H             3.8839       0.6668       1.6404   (default)      x
+        x  C            27.8448       1.7782       1.8997   (default)      x
+        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ 
+  
++---------------- MEMORY AND SCRATCH DISK ESTIMATES PER PROCESS --------------+
+|                                                     Memory          Disk    |
+| Baseline code, static data and system overhead      772.0 MB         0.0 MB |
+| BLAS internal memory storage                          0.0 MB         0.0 MB |
+| Model and support data                               45.4 MB         0.0 MB |
+| Electronic energy minimisation requirements          85.3 MB         0.0 MB |
+| Force calculation requirements                       20.6 MB         0.0 MB |
+|                                               ----------------------------- |
+| Approx. total storage required per process          902.7 MB         0.0 MB |
+|                                                                             |
+| Requirements will fluctuate during execution and may exceed these estimates |
++-----------------------------------------------------------------------------+
+Calculating approximate eigenstates for fixed initial Hamiltonian
+Cut-off for approx. calculation is  119.774 eV
+Improving approx. states at cut-off of  462.594 eV
+Resetting cut-off to  800.000 eV
+Calculating total energy with cut-off of  800.000 eV.
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -4.74175852E+003  0.00000000E+000                        14.84  <-- SCF
+      1  -5.20028632E+003 -5.59717605E+000   1.38947819E+001      25.83  <-- SCF
+      2  -5.20051130E+003 -5.59826585E+000   6.81754255E-003      37.12  <-- SCF
+      3  -5.18748628E+003 -4.31970494E+000  -3.94697805E-001      49.38  <-- SCF
+      4  -5.18668587E+003 -3.81725458E+000  -2.42548577E-002      61.70  <-- SCF
+      5  -5.18643200E+003 -3.57192829E+000  -7.69291568E-003      74.18  <-- SCF
+      6  -5.18638224E+003 -3.37401680E+000  -1.50787725E-003      85.43  <-- SCF
+      7  -5.18632869E+003 -3.14400233E+000  -1.62256934E-003      96.62  <-- SCF
+      8  -5.18628408E+003 -2.99876348E+000  -1.35189546E-003     107.80  <-- SCF
+      9  -5.18626980E+003 -2.86298730E+000  -4.32771662E-004     119.56  <-- SCF
+     10  -5.18629568E+003 -2.73034644E+000   7.84289044E-004     130.86  <-- SCF
+     11  -5.18615732E+003 -2.72187936E+000  -4.19282051E-003     141.71  <-- SCF
+     12  -5.18631136E+003 -2.70991783E+000   4.66790607E-003     152.86  <-- SCF
+     13  -5.18616269E+003 -2.68567378E+000  -4.50522358E-003     163.73  <-- SCF
+     14  -5.18623754E+003 -2.65028113E+000   2.26824353E-003     174.25  <-- SCF
+     15  -5.18615245E+003 -2.57797599E+000  -2.57833694E-003     185.23  <-- SCF
+     16  -5.18618096E+003 -2.48647249E+000   8.63715342E-004     196.67  <-- SCF
+     17  -5.18631300E+003 -2.40648427E+000   4.00124335E-003     207.87  <-- SCF
+     18  -5.18634105E+003 -2.34901433E+000   8.49996057E-004     219.21  <-- SCF
+     19  -5.18634088E+003 -2.32671319E+000  -5.18311695E-006     229.46  <-- SCF
+     20  -5.18633368E+003 -2.31860051E+000  -2.18179200E-004     239.11  <-- SCF
+     21  -5.18630923E+003 -2.31373117E+000  -7.40816746E-004     248.52  <-- SCF
+     22  -5.18631996E+003 -2.31230892E+000   3.25278499E-004     257.83  <-- SCF
+     23  -5.18634124E+003 -2.31164401E+000   6.44665189E-004     267.31  <-- SCF
+     24  -5.18634537E+003 -2.31042391E+000   1.25302926E-004     276.56  <-- SCF
+     25  -5.18634758E+003 -2.30913262E+000   6.68629911E-005     285.52  <-- SCF
+     26  -5.18634872E+003 -2.30778830E+000   3.46581347E-005     294.87  <-- SCF
+     27  -5.18634899E+003 -2.30695191E+000   8.09821541E-006     304.22  <-- SCF
+     28  -5.18634898E+003 -2.30598816E+000  -3.02672612E-007     313.34  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.389412     hbar/2                        
+Integrated |Spin Density|   =    0.719891     hbar/2                        
+ 
+Final energy, E             =  -5186.248910357     eV
+Final free energy (E-TS)    =  -5186.348980205     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5186.298945281     eV
+ 
+ WARNING: Your unit cell might be too small to get accurate results for van der Waals
+(SEDC) Total Energy Correction : -0.273967E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5188.988579607     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5189.088649455     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5189.038614531     eV
+
+Writing analysis data to 4x4.castep_bin
+
+Writing model to 4x4.check
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++ Starting Transition State Search +++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++ Linear synchronous transit method ++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Difference vector: Fractional components 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    0.083150748    0.166957891    0.000173204
+    0.000568897   -0.000866014   -0.004049357
+    0.000382295    0.000116958    0.000147451
+    0.000284902    0.000950993    0.000679082
+    0.001133283    0.000780354    0.002718940
+   -0.000454666    0.000786790   -0.002416887
+    0.000156006    0.000394715   -0.001678435
+   -0.000399306   -0.000711257   -0.004188262
+    0.000408039   -0.000066203   -0.002729432
+   -0.001548606   -0.000856902   -0.004076190
+   -0.000001169    0.000117288   -0.005585081
+   -0.002053162   -0.003954915   -0.017460970
+    0.004329252    0.001314294   -0.004086971
+   -0.003117221    0.001334375    0.004357372
+    0.000553693    0.000960589   -0.000306964
+   -0.000381774    0.000105484    0.000066965
+   -0.000564271   -0.000070659   -0.002742354
+   -0.000596008   -0.000076030    0.002874272
+   -0.000406464    0.000114620    0.000029968
+    0.000536486    0.000956455    0.000597741
+   -0.003166029    0.001328582   -0.004060527
+    0.004369334    0.001323471    0.004316264
+   -0.002032446   -0.003953307    0.017767068
+    0.000017763    0.000124673    0.005813022
+   -0.001540780   -0.000866499    0.004251015
+    0.000389852   -0.000077372    0.002993795
+   -0.000414822   -0.000709419    0.004417262
+    0.000143840    0.000401600    0.001928399
+   -0.000491881    0.000785920    0.002608402
+    0.001158323    0.000791521   -0.002467694
+    0.000323563    0.000967321   -0.000391754
+    0.000400170    0.000108743    0.000141318
+    0.000579938   -0.000859714    0.004277982
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Periodic cell setup complete
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18623315E+003  0.00000000E+000                       321.00  <-- SCF
+      1  -5.18634906E+003 -2.30388700E+000   3.51243500E-003     329.28  <-- SCF
+      2  -5.18634906E+003 -2.30388705E+000   7.96778029E-008     339.04  <-- SCF
+      3  -5.18634636E+003 -2.30382320E+000  -8.17642811E-005     348.27  <-- SCF
+      4  -5.18634926E+003 -2.30372351E+000   8.79164996E-005     357.52  <-- SCF
+      5  -5.18634852E+003 -2.30365556E+000  -2.25086091E-005     366.71  <-- SCF
+      6  -5.18634909E+003 -2.30353447E+000   1.72412937E-005     375.88  <-- SCF
+      7  -5.18634909E+003 -2.30337560E+000   2.29634631E-007     385.34  <-- SCF
+      8  -5.18634923E+003 -2.30319934E+000   3.99667951E-006     394.60  <-- SCF
+      9  -5.18634926E+003 -2.30294876E+000   1.07904855E-006     403.83  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.373060     hbar/2                        
+Integrated |Spin Density|   =    0.693453     hbar/2                        
+ 
+Final energy, E             =  -5186.249411558     eV
+Final free energy (E-TS)    =  -5186.349262447     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5186.299337002     eV
+ 
+
+Dispersion corrected final energy*, Ecor          =  -5188.989080808     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5189.088931697     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5189.039006252     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Reactant                      
+ Path coordinate:                         0.00000
+ Energy:                              -5189.08893 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                             Coordinates: Fractional components
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +  Element    Atom                                                 +
+            +            Number           x          y          z              +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +H             1          0.416753   0.333198   0.578198           +
+            +C             1          0.165709   0.083576   0.500091           +
+            +C             2         -0.000672  -0.000186   0.495898           +
+            +C             3          0.165690   0.332150   0.500073           +
+            +C             4         -0.000744   0.249447   0.495912           +
+            +C             5          0.166751   0.583064   0.498441           +
+            +C             6         -0.000475   0.499566   0.497713           +
+            +C             7          0.166761   0.834171   0.498470           +
+            +C             8         -0.000436   0.750309   0.497716           +
+            +C             9          0.417574   0.083532   0.500110           +
+            +C            10          0.249586  -0.000486   0.500571           +
+            +C            11          0.416530   0.333257   0.521932           +
+            +C            12          0.245763   0.247883   0.504331           +
+            +C            13          0.417633   0.584139   0.500093           +
+            +C            14          0.249562   0.500202   0.500533           +
+            +C            15          0.416467   0.833446   0.495947           +
+            +C            16          0.250188   0.750379   0.497714           +
+            +C            17          0.666766   0.083051   0.494969           +
+            +C            18          0.500297  -0.000214   0.495995           +
+            +C            19          0.666297   0.332207   0.500137           +
+            +C            20          0.501908   0.247873   0.504296           +
+            +C            21          0.666303   0.584174   0.500136           +
+            +C            22          0.501927   0.504061   0.504333           +
+            +C            23          0.666793   0.833731   0.494922           +
+            +C            24          0.500347   0.750686   0.495963           +
+            +C            25          0.916430   0.083135   0.494879           +
+            +C            26          0.750029  -0.000093   0.494200           +
+            +C            27          0.916723   0.333416   0.495924           +
+            +C            28          0.750120   0.249515   0.495995           +
+            +C            29          0.915994   0.583146   0.498497           +
+            +C            30          0.750411   0.500262   0.500617           +
+            +C            31          0.916674   0.833450   0.495889           +
+            +C            32          0.750119   0.750664   0.495946           +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                           Forces: Cartesian components: eV/A                          
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +  Element    Atom                                                 +
+            +            Number           x          y          z              +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +H             1         -0.009080   0.000449  -0.006926           +
+            +C             1         -0.003043  -0.003154  -0.001751           +
+            +C             2         -0.001934   0.002655  -0.001934           +
+            +C             3         -0.006042  -0.003925  -0.000614           +
+            +C             4          0.002293  -0.002336  -0.002203           +
+            +C             5         -0.001975   0.001710   0.000135           +
+            +C             6          0.000188  -0.004506   0.002084           +
+            +C             7          0.000242  -0.004076  -0.001325           +
+            +C             8         -0.003148   0.001839   0.002285           +
+            +C             9          0.008773  -0.003125  -0.002193           +
+            +C            10         -0.002441   0.000714   0.006896           +
+            +C            11          0.004537  -0.000624   0.009471           +
+            +C            12         -0.002168   0.000152  -0.000777           +
+            +C            13          0.001425   0.010051  -0.000701           +
+            +C            14          0.000322  -0.001424   0.009073           +
+            +C            15          0.003086   0.000430   0.004435           +
+            +C            16          0.003395   0.001752   0.001897           +
+            +C            17         -0.000907   0.000929  -0.008898           +
+            +C            18         -0.000405   0.002319  -0.006687           +
+            +C            19          0.006524  -0.003506  -0.003251           +
+            +C            20         -0.008306   0.003079   0.004424           +
+            +C            21          0.001748   0.005275  -0.002824           +
+            +C            22         -0.002664  -0.002914   0.001553           +
+            +C            23          0.000181  -0.001381  -0.005911           +
+            +C            24          0.002337  -0.002443  -0.004229           +
+            +C            25          0.001443   0.001132  -0.003440           +
+            +C            26          0.001188  -0.000002   0.005333           +
+            +C            27          0.002133   0.000420   0.005746           +
+            +C            28         -0.001688  -0.001774  -0.006422           +
+            +C            29          0.004163   0.002850  -0.002345           +
+            +C            30         -0.000800   0.000850   0.005127           +
+            +C            31          0.003612  -0.001019   0.007676           +
+            +C            32         -0.002989  -0.000399  -0.003704           +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.06622988E+003  0.00000000E+000                       406.55  <-- SCF
+      1  -5.16681617E+003 -1.75121120E+000   3.04806939E+000     416.56  <-- SCF
+      2  -5.18735321E+003 -2.37784414E+000   6.22334649E-001     425.20  <-- SCF
+      3  -5.18626549E+003 -2.33029085E+000  -3.29613449E-002     437.15  <-- SCF
+      4  -5.18633019E+003 -2.29611666E+000   1.96072829E-003     451.02  <-- SCF
+      5  -5.18634060E+003 -2.30776664E+000   3.15502234E-004     462.90  <-- SCF
+      6  -5.18634563E+003 -2.30222911E+000   1.52416912E-004     474.22  <-- SCF
+      7  -5.18634711E+003 -2.30268468E+000   4.47915465E-005     484.45  <-- SCF
+      8  -5.18634793E+003 -2.30324964E+000   2.48178906E-005     493.63  <-- SCF
+      9  -5.18634863E+003 -2.30342245E+000   2.11882500E-005     503.18  <-- SCF
+     10  -5.18634897E+003 -2.30351014E+000   1.02428742E-005     512.80  <-- SCF
+     11  -5.18634899E+003 -2.30349132E+000   5.80856519E-007     522.39  <-- SCF
+     12  -5.18634907E+003 -2.30350294E+000   2.61079348E-006     531.52  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.381683     hbar/2                        
+Integrated |Spin Density|   =    0.708153     hbar/2                        
+ 
+Final energy, E             =  -5186.249564990     eV
+Final free energy (E-TS)    =  -5186.349072730     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5186.299318860     eV
+ 
+(SEDC) Total Energy Correction : -0.273949E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5188.989057928     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5189.088565668     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5189.038811798     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Product                       
+ Path coordinate:                         1.00000
+ Energy:                              -5189.08857 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                             Coordinates: Fractional components
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +  Element    Atom                                                 +
+            +            Number           x          y          z              +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +H             1          0.499904   0.500156   0.578371           +
+            +C             1          0.166277   0.082710   0.496042           +
+            +C             2         -0.000290  -0.000069   0.496045           +
+            +C             3          0.165975   0.333101   0.500752           +
+            +C             4          0.000389   0.250227   0.498631           +
+            +C             5          0.166297   0.583851   0.496024           +
+            +C             6         -0.000319   0.499961   0.496034           +
+            +C             7          0.166362   0.833460   0.494282           +
+            +C             8         -0.000028   0.750243   0.494987           +
+            +C             9          0.416025   0.082676   0.496034           +
+            +C            10          0.249585  -0.000368   0.494986           +
+            +C            11          0.414476   0.329302   0.504471           +
+            +C            12          0.250092   0.249198   0.500244           +
+            +C            13          0.414516   0.585473   0.504451           +
+            +C            14          0.250115   0.501163   0.500226           +
+            +C            15          0.416085   0.833551   0.496014           +
+            +C            16          0.249623   0.750309   0.494972           +
+            +C            17          0.666170   0.082975   0.497843           +
+            +C            18          0.499891  -0.000100   0.496025           +
+            +C            19          0.666833   0.333164   0.500735           +
+            +C            20          0.498742   0.249202   0.500236           +
+            +C            21          0.670673   0.585497   0.504452           +
+            +C            22          0.499895   0.500108   0.522100           +
+            +C            23          0.666811   0.833856   0.500735           +
+            +C            24          0.498806   0.749820   0.500214           +
+            +C            25          0.916820   0.083058   0.497873           +
+            +C            26          0.749614  -0.000803   0.498617           +
+            +C            27          0.916867   0.333818   0.497852           +
+            +C            28          0.749628   0.250301   0.498603           +
+            +C            29          0.917153   0.583937   0.496030           +
+            +C            30          0.750734   0.501229   0.500225           +
+            +C            31          0.917074   0.833558   0.496030           +
+            +C            32          0.750699   0.749805   0.500224           +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                           Forces: Cartesian components: eV/A                          
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +  Element    Atom                                                 +
+            +            Number           x          y          z              +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +H             1          0.001001   0.000175  -0.010939           +
+            +C             1         -0.002791  -0.000652   0.000626           +
+            +C             2          0.003642  -0.002266   0.001088           +
+            +C             3          0.000638   0.001301  -0.001741           +
+            +C             4         -0.002748  -0.003185  -0.000744           +
+            +C             5         -0.003458   0.000143   0.000677           +
+            +C             6         -0.000352  -0.000170   0.001259           +
+            +C             7          0.000221   0.000685  -0.003775           +
+            +C             8         -0.002465  -0.002493  -0.002932           +
+            +C             9          0.001098  -0.001781  -0.000727           +
+            +C            10          0.000970   0.003017  -0.002463           +
+            +C            11         -0.003021   0.003144   0.004052           +
+            +C            12         -0.000040  -0.003717   0.001503           +
+            +C            13         -0.002295   0.000497  -0.000085           +
+            +C            14         -0.000916  -0.000364   0.000946           +
+            +C            15         -0.002824   0.003605   0.000018           +
+            +C            16          0.002690  -0.001592  -0.002210           +
+            +C            17          0.000370   0.001156   0.003259           +
+            +C            18          0.002623   0.001159   0.000935           +
+            +C            19         -0.002751  -0.000270  -0.002070           +
+            +C            20          0.003929  -0.000628  -0.000176           +
+            +C            21         -0.008886  -0.002548   0.003261           +
+            +C            22          0.004182   0.000877   0.006488           +
+            +C            23         -0.002658  -0.000684  -0.002266           +
+            +C            24          0.002111   0.000756  -0.000041           +
+            +C            25         -0.001670   0.001494   0.001684           +
+            +C            26          0.001822   0.003756   0.000312           +
+            +C            27         -0.000117  -0.001218   0.002709           +
+            +C            28          0.004807  -0.002540   0.001692           +
+            +C            29          0.002063  -0.000826  -0.000623           +
+            +C            30          0.002268  -0.000665  -0.000114           +
+            +C            31         -0.000819   0.003166  -0.000012           +
+            +C            32          0.003374   0.000670   0.000409           +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ LST maximum bracketing from reactant
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.09760435E+003  0.00000000E+000                       537.08  <-- SCF
+      1  -5.17217653E+003 -1.71000636E+000   2.25976321E+000     546.92  <-- SCF
+      2  -5.18646415E+003 -2.23831367E+000   4.32958110E-001     558.99  <-- SCF
+      3  -5.18578813E+003 -2.22332774E+000  -2.04853992E-002     570.95  <-- SCF
+      4  -5.18581876E+003 -2.19327768E+000   9.27979515E-004     583.42  <-- SCF
+      5  -5.18582675E+003 -2.21048275E+000   2.42060951E-004     595.36  <-- SCF
+      6  -5.18583061E+003 -2.20775094E+000   1.17113615E-004     607.15  <-- SCF
+      7  -5.18583211E+003 -2.21008662E+000   4.55557763E-005     617.44  <-- SCF
+      8  -5.18583279E+003 -2.21154632E+000   2.04923572E-005     627.04  <-- SCF
+      9  -5.18583340E+003 -2.21319317E+000   1.85701205E-005     636.60  <-- SCF
+     10  -5.18583367E+003 -2.21467009E+000   8.17505101E-006     646.44  <-- SCF
+     11  -5.18583359E+003 -2.21520781E+000  -2.54554477E-006     655.92  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.383607     hbar/2                        
+Integrated |Spin Density|   =    0.694601     hbar/2                        
+ 
+Final energy, E             =  -5185.743315247     eV
+Final free energy (E-TS)    =  -5185.833588018     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.788451633     eV
+ 
+(SEDC) Total Energy Correction : -0.274671E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5188.490028179     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5188.580300950     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5188.535164565     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.20347
+ Energy:                              -5188.58030 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.17679672E+003  0.00000000E+000                       661.49  <-- SCF
+      1  -5.18472678E+003 -1.96406162E+000   2.40304934E-001     670.97  <-- SCF
+      2  -5.18511996E+003 -2.02968995E+000   1.19144534E-002     683.15  <-- SCF
+      3  -5.18505400E+003 -2.09025291E+000  -1.99867408E-003     695.00  <-- SCF
+      4  -5.18505144E+003 -2.07999076E+000  -7.77784699E-005     706.64  <-- SCF
+      5  -5.18505239E+003 -2.08627492E+000   2.89835915E-005     718.25  <-- SCF
+      6  -5.18505326E+003 -2.08921337E+000   2.61313090E-005     728.18  <-- SCF
+      7  -5.18505378E+003 -2.09163191E+000   1.59826347E-005     737.58  <-- SCF
+      8  -5.18505430E+003 -2.09484271E+000   1.56762117E-005     746.91  <-- SCF
+      9  -5.18505482E+003 -2.09901093E+000   1.55980043E-005     756.45  <-- SCF
+     10  -5.18505525E+003 -2.10234855E+000   1.32414179E-005     766.06  <-- SCF
+     11  -5.18505504E+003 -2.10312695E+000  -6.50672394E-006     775.31  <-- SCF
+     12  -5.18505560E+003 -2.10374525E+000   1.71778299E-005     784.15  <-- SCF
+     13  -5.18505617E+003 -2.10591848E+000   1.71605671E-005     793.32  <-- SCF
+     14  -5.18505719E+003 -2.10936682E+000   3.08297839E-005     802.85  <-- SCF
+     15  -5.18505704E+003 -2.11309717E+000  -4.39606936E-006     812.77  <-- SCF
+     16  -5.18505681E+003 -2.11502136E+000  -6.98724748E-006     821.99  <-- SCF
+     17  -5.18505689E+003 -2.11619342E+000   2.28650464E-006     831.49  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.393726     hbar/2                        
+Integrated |Spin Density|   =    0.589148     hbar/2                        
+ 
+Final energy, E             =  -5184.992592926     eV
+Final free energy (E-TS)    =  -5185.056888459     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.024740693     eV
+ 
+(SEDC) Total Energy Correction : -0.275373E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.746320121     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.810615655     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.778467888     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.40295
+ Energy:                              -5187.81062 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.17759296E+003  0.00000000E+000                       837.07  <-- SCF
+      1  -5.18472550E+003 -2.09227784E+000   2.16137622E-001     846.35  <-- SCF
+      2  -5.18509046E+003 -2.14134661E+000   1.10594971E-002     858.67  <-- SCF
+      3  -5.18504619E+003 -2.11134284E+000  -1.34156561E-003     870.51  <-- SCF
+      4  -5.18505209E+003 -2.11877645E+000   1.78633731E-004     882.83  <-- SCF
+      5  -5.18505568E+003 -2.11723104E+000   1.08975847E-004     894.24  <-- SCF
+      6  -5.18505688E+003 -2.11661936E+000   3.62226250E-005     904.23  <-- SCF
+      7  -5.18505736E+003 -2.11695681E+000   1.45093222E-005     913.69  <-- SCF
+      8  -5.18505765E+003 -2.11708823E+000   8.71947783E-006     923.11  <-- SCF
+      9  -5.18505783E+003 -2.11714169E+000   5.67715292E-006     932.79  <-- SCF
+     10  -5.18505791E+003 -2.11717816E+000   2.43617571E-006     942.55  <-- SCF
+     11  -5.18505794E+003 -2.11723518E+000   9.03761917E-007     951.85  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.392321     hbar/2                        
+Integrated |Spin Density|   =    0.580402     hbar/2                        
+ 
+Final energy, E             =  -5184.993592940     eV
+Final free energy (E-TS)    =  -5185.057943258     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.025768099     eV
+ 
+(SEDC) Total Energy Correction : -0.275304E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.746629230     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.810979548     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.778804389     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.59704
+ Energy:                              -5187.81098 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.17873144E+003  0.00000000E+000                       957.37  <-- SCF
+      1  -5.18546583E+003 -2.26950393E+000   2.04072378E-001     966.54  <-- SCF
+      2  -5.18589612E+003 -2.31108873E+000   1.30389657E-002     978.95  <-- SCF
+      3  -5.18582001E+003 -2.24379774E+000  -2.30625329E-003     990.58  <-- SCF
+      4  -5.18582605E+003 -2.25052690E+000   1.82970654E-004    1002.02  <-- SCF
+      5  -5.18582827E+003 -2.24506734E+000   6.74373535E-005    1013.73  <-- SCF
+      6  -5.18582956E+003 -2.24303163E+000   3.90504256E-005    1023.62  <-- SCF
+      7  -5.18582998E+003 -2.24162210E+000   1.26293109E-005    1033.14  <-- SCF
+      8  -5.18583037E+003 -2.23925150E+000   1.17267227E-005    1042.42  <-- SCF
+      9  -5.18583075E+003 -2.23673249E+000   1.16663341E-005    1051.72  <-- SCF
+     10  -5.18583147E+003 -2.23448661E+000   2.18322974E-005    1060.71  <-- SCF
+     11  -5.18583146E+003 -2.23403431E+000  -3.61609836E-007    1069.44  <-- SCF
+     12  -5.18583180E+003 -2.23363287E+000   1.02615792E-005    1078.27  <-- SCF
+     13  -5.18583263E+003 -2.23133318E+000   2.51982344E-005    1087.59  <-- SCF
+     14  -5.18583338E+003 -2.23014645E+000   2.26367907E-005    1096.89  <-- SCF
+     15  -5.18583402E+003 -2.22838270E+000   1.96250845E-005    1106.57  <-- SCF
+     16  -5.18583412E+003 -2.22753977E+000   3.01386633E-006    1116.29  <-- SCF
+     17  -5.18583422E+003 -2.22671764E+000   2.85014932E-006    1125.84  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.412509     hbar/2                        
+Integrated |Spin Density|   =    0.747403     hbar/2                        
+ 
+Final energy, E             =  -5185.745910503     eV
+Final free energy (E-TS)    =  -5185.834217899     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.790064201     eV
+ 
+(SEDC) Total Energy Correction : -0.274602E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5188.491926788     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5188.580234184     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5188.536080486     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.79653
+ Energy:                              -5188.58023 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.17803203E+003  0.00000000E+000                      1131.14  <-- SCF
+      1  -5.18598059E+003 -2.38667873E+000   2.40865436E-001    1140.63  <-- SCF
+      2  -5.18644202E+003 -2.37335923E+000   1.39826640E-002    1152.88  <-- SCF
+      3  -5.18634137E+003 -2.32347926E+000  -3.04988984E-003    1164.54  <-- SCF
+      4  -5.18634574E+003 -2.32450213E+000   1.32497696E-004    1176.17  <-- SCF
+      5  -5.18634715E+003 -2.32009581E+000   4.25881003E-005    1187.88  <-- SCF
+      6  -5.18634756E+003 -2.31844620E+000   1.22831020E-005    1197.84  <-- SCF
+      7  -5.18634775E+003 -2.31748279E+000   6.03796426E-006    1207.29  <-- SCF
+      8  -5.18634792E+003 -2.31598268E+000   5.06397343E-006    1216.18  <-- SCF
+      9  -5.18634810E+003 -2.31389001E+000   5.51456153E-006    1225.30  <-- SCF
+     10  -5.18634829E+003 -2.31222651E+000   5.54444695E-006    1233.92  <-- SCF
+     11  -5.18634856E+003 -2.31185560E+000   8.32105348E-006    1242.77  <-- SCF
+     12  -5.18634867E+003 -2.31148373E+000   3.29813270E-006    1251.27  <-- SCF
+     13  -5.18634898E+003 -2.30938791E+000   9.37729656E-006    1260.64  <-- SCF
+     14  -5.18634904E+003 -2.30791494E+000   1.76686442E-006    1270.32  <-- SCF
+     15  -5.18634909E+003 -2.30578652E+000   1.67174278E-006    1279.66  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.407813     hbar/2                        
+Integrated |Spin Density|   =    0.761614     hbar/2                        
+ 
+Final energy, E             =  -5186.251766642     eV
+Final free energy (E-TS)    =  -5186.349093125     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5186.300429883     eV
+ 
+(SEDC) Total Energy Correction : -0.273866E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5188.990427128     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5189.087753611     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5189.039090370     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         1.00000
+ Energy:                              -5189.08775 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ LST maximum bracketing from reactant failed
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ LST maximum bracketing from product
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18302660E+003  0.00000000E+000                      1285.10  <-- SCF
+      1  -5.18614459E+003 -2.22973332E+000   9.44845303E-002    1294.44  <-- SCF
+      2  -5.18621333E+003 -2.22589901E+000   2.08316961E-003    1308.01  <-- SCF
+      3  -5.18618831E+003 -2.25815945E+000  -7.58249022E-004    1319.73  <-- SCF
+      4  -5.18618864E+003 -2.25543071E+000   9.99481737E-006    1331.04  <-- SCF
+      5  -5.18618883E+003 -2.25814269E+000   5.74919463E-006    1341.80  <-- SCF
+      6  -5.18618901E+003 -2.25843420E+000   5.59922358E-006    1351.04  <-- SCF
+      7  -5.18618913E+003 -2.25887484E+000   3.59821369E-006    1360.20  <-- SCF
+      8  -5.18618929E+003 -2.25953996E+000   4.67726817E-006    1369.78  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.407548     hbar/2                        
+Integrated |Spin Density|   =    0.756900     hbar/2                        
+ 
+Final energy, E             =  -5186.094480435     eV
+Final free energy (E-TS)    =  -5186.189286844     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5186.141883640     eV
+ 
+(SEDC) Total Energy Correction : -0.274232E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5188.836800830     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5188.931607238     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5188.884204034     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.89684
+ Energy:                              -5188.93161 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18320557E+003  0.00000000E+000                      1375.32  <-- SCF
+      1  -5.18580719E+003 -2.17985023E+000   7.88368542E-002    1384.45  <-- SCF
+      2  -5.18585463E+003 -2.17874380E+000   1.43778474E-003    1397.63  <-- SCF
+      3  -5.18583326E+003 -2.21257601E+000  -6.47536382E-004    1409.41  <-- SCF
+      4  -5.18583304E+003 -2.21000268E+000  -6.78664843E-006    1420.93  <-- SCF
+      5  -5.18583323E+003 -2.21297977E+000   5.74066597E-006    1431.99  <-- SCF
+      6  -5.18583350E+003 -2.21375133E+000   8.26205157E-006    1441.47  <-- SCF
+      7  -5.18583369E+003 -2.21465994E+000   5.55755629E-006    1450.95  <-- SCF
+      8  -5.18583390E+003 -2.21606198E+000   6.55361902E-006    1460.43  <-- SCF
+      9  -5.18583403E+003 -2.21753326E+000   3.90312495E-006    1470.13  <-- SCF
+     10  -5.18583410E+003 -2.21889300E+000   2.13900249E-006    1479.88  <-- SCF
+     11  -5.18583418E+003 -2.21914881E+000   2.34115222E-006    1489.36  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.411708     hbar/2                        
+Integrated |Spin Density|   =    0.747944     hbar/2                        
+ 
+Final energy, E             =  -5185.745823630     eV
+Final free energy (E-TS)    =  -5185.834178288     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.790000959     eV
+ 
+(SEDC) Total Energy Correction : -0.274683E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5188.492655885     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5188.581010543     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5188.536833214     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.79653
+ Energy:                              -5188.58101 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18288385E+003  0.00000000E+000                      1494.95  <-- SCF
+      1  -5.18537716E+003 -2.12330524E+000   7.55548680E-002    1504.00  <-- SCF
+      2  -5.18542366E+003 -2.12536334E+000   1.40902414E-003    1516.77  <-- SCF
+      3  -5.18540450E+003 -2.16100352E+000  -5.80681486E-004    1528.52  <-- SCF
+      4  -5.18540381E+003 -2.15658617E+000  -2.09460075E-005    1540.17  <-- SCF
+      5  -5.18540402E+003 -2.15991324E+000   6.40692191E-006    1551.15  <-- SCF
+      6  -5.18540426E+003 -2.16106682E+000   7.31183428E-006    1560.67  <-- SCF
+      7  -5.18540444E+003 -2.16217186E+000   5.36631179E-006    1569.84  <-- SCF
+      8  -5.18540467E+003 -2.16403487E+000   7.11777735E-006    1579.05  <-- SCF
+      9  -5.18540493E+003 -2.16606434E+000   7.94551348E-006    1588.54  <-- SCF
+     10  -5.18540518E+003 -2.16794617E+000   7.51674946E-006    1598.05  <-- SCF
+     11  -5.18540537E+003 -2.16829221E+000   5.75435664E-006    1607.18  <-- SCF
+     12  -5.18540548E+003 -2.16857181E+000   3.18397886E-006    1615.85  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.405564     hbar/2                        
+Integrated |Spin Density|   =    0.698828     hbar/2                        
+ 
+Final energy, E             =  -5185.328598153     eV
+Final free energy (E-TS)    =  -5185.405476277     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.367037215     eV
+ 
+(SEDC) Total Energy Correction : -0.275063E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5188.079232530     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5188.156110654     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5188.117671592     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.69526
+ Energy:                              -5188.15611 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18286790E+003  0.00000000E+000                      1621.41  <-- SCF
+      1  -5.18502831E+003 -2.07377739E+000   6.54669870E-002    1631.29  <-- SCF
+      2  -5.18507153E+003 -2.07676030E+000   1.30949574E-003    1644.14  <-- SCF
+      3  -5.18505577E+003 -2.10398571E+000  -4.77612302E-004    1655.69  <-- SCF
+      4  -5.18505550E+003 -2.10010044E+000  -8.23996625E-006    1667.44  <-- SCF
+      5  -5.18505585E+003 -2.10290679E+000   1.08904175E-005    1678.06  <-- SCF
+      6  -5.18505630E+003 -2.10441097E+000   1.35421850E-005    1687.59  <-- SCF
+      7  -5.18505640E+003 -2.10554480E+000   3.05984852E-006    1697.29  <-- SCF
+      8  -5.18505665E+003 -2.10735414E+000   7.41279331E-006    1706.54  <-- SCF
+      9  -5.18505675E+003 -2.10915061E+000   3.08645605E-006    1716.07  <-- SCF
+     10  -5.18505707E+003 -2.11064242E+000   9.79810486E-006    1725.50  <-- SCF
+     11  -5.18505749E+003 -2.11094102E+000   1.25938027E-005    1734.66  <-- SCF
+     12  -5.18505756E+003 -2.11123209E+000   2.16206279E-006    1743.26  <-- SCF
+     13  -5.18505780E+003 -2.11216612E+000   7.29254131E-006    1752.86  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.393669     hbar/2                        
+Integrated |Spin Density|   =    0.595894     hbar/2                        
+ 
+Final energy, E             =  -5184.993715586     eV
+Final free energy (E-TS)    =  -5185.057799674     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.025757630     eV
+ 
+(SEDC) Total Energy Correction : -0.275345E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.747166453     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.811250541     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.779208497     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.59704
+ Energy:                              -5187.81125 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18288798E+003  0.00000000E+000                      1758.36  <-- SCF
+      1  -5.18488564E+003 -2.06815253E+000   6.05352034E-002    1767.90  <-- SCF
+      2  -5.18492883E+003 -2.07152337E+000   1.30865611E-003    1781.06  <-- SCF
+      3  -5.18491708E+003 -2.07600732E+000  -3.55886455E-004    1792.69  <-- SCF
+      4  -5.18491827E+003 -2.07646628E+000   3.59732404E-005    1804.61  <-- SCF
+      5  -5.18491919E+003 -2.07752841E+000   2.79573701E-005    1814.99  <-- SCF
+      6  -5.18491955E+003 -2.07835291E+000   1.09849885E-005    1824.18  <-- SCF
+      7  -5.18491971E+003 -2.07897280E+000   4.80931017E-006    1833.90  <-- SCF
+      8  -5.18491986E+003 -2.07983680E+000   4.37414987E-006    1843.69  <-- SCF
+      9  -5.18491992E+003 -2.08032114E+000   2.03167088E-006    1853.34  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.394209     hbar/2                        
+Integrated |Spin Density|   =    0.496448     hbar/2                        
+ 
+Final energy, E             =  -5184.861933189     eV
+Final free energy (E-TS)    =  -5184.919923190     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.890928189     eV
+ 
+(SEDC) Total Energy Correction : -0.275421E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.616144490     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.674134492     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.645139491     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.49999
+ Energy:                              -5187.67413 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18316146E+003  0.00000000E+000                      1858.91  <-- SCF
+      1  -5.18502135E+003 -2.13164959E+000   5.63600665E-002    1868.14  <-- SCF
+      2  -5.18506484E+003 -2.13460000E+000   1.31811184E-003    1881.34  <-- SCF
+      3  -5.18505338E+003 -2.11359578E+000  -3.47356867E-004    1893.06  <-- SCF
+      4  -5.18505541E+003 -2.11887144E+000   6.14289761E-005    1904.80  <-- SCF
+      5  -5.18505663E+003 -2.11746265E+000   3.70238476E-005    1915.34  <-- SCF
+      6  -5.18505711E+003 -2.11687665E+000   1.46786919E-005    1925.02  <-- SCF
+      7  -5.18505733E+003 -2.11693703E+000   6.59485159E-006    1934.77  <-- SCF
+      8  -5.18505744E+003 -2.11691071E+000   3.41710574E-006    1944.49  <-- SCF
+      9  -5.18505750E+003 -2.11682993E+000   1.68861686E-006    1954.20  <-- SCF
+     10  -5.18505753E+003 -2.11679190E+000   8.08243409E-007    1963.84  <-- SCF
+     11  -5.18505754E+003 -2.11681589E+000   5.24016364E-007    1972.67  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.393112     hbar/2                        
+Integrated |Spin Density|   =    0.583084     hbar/2                        
+ 
+Final energy, E             =  -5184.993287290     eV
+Final free energy (E-TS)    =  -5185.057544065     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.025415677     eV
+ 
+(SEDC) Total Energy Correction : -0.275329E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.746577624     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.810834398     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.778706011     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.40295
+ Energy:                              -5187.81083 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ LST maximum bracketing from product successful
+ Cumulative number of energy/gradient calls:     13
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Commencing maximum search
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18404262E+003  0.00000000E+000                      1978.29  <-- SCF
+      1  -5.18492931E+003 -2.07817504E+000   2.68693932E-002    1987.27  <-- SCF
+      2  -5.18494099E+003 -2.07897687E+000   3.53910213E-004    2001.04  <-- SCF
+      3  -5.18493598E+003 -2.08668717E+000  -1.51628578E-004    2012.90  <-- SCF
+      4  -5.18493642E+003 -2.08574681E+000   1.32058687E-005    2024.31  <-- SCF
+      5  -5.18493674E+003 -2.08665583E+000   9.80281497E-006    2034.38  <-- SCF
+      6  -5.18493693E+003 -2.08725943E+000   5.85469737E-006    2044.07  <-- SCF
+      7  -5.18493703E+003 -2.08761516E+000   2.96300831E-006    2053.86  <-- SCF
+      8  -5.18493710E+003 -2.08759887E+000   2.05932371E-006    2063.59  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.390061     hbar/2                        
+Integrated |Spin Density|   =    0.507862     hbar/2                        
+ 
+Final energy, E             =  -5184.877964226     eV
+Final free energy (E-TS)    =  -5184.937099800     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.907532013     eV
+ 
+(SEDC) Total Energy Correction : -0.275331E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.631275059     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.690410633     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.660842846     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.46324
+ Energy:                              -5187.69041 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18377359E+003  0.00000000E+000                      2069.20  <-- SCF
+      1  -5.18492184E+003 -2.09091227E+000   3.47954279E-002    2078.48  <-- SCF
+      2  -5.18494169E+003 -2.09225175E+000   6.01688986E-004    2091.98  <-- SCF
+      3  -5.18493495E+003 -2.08670290E+000  -2.04277775E-004    2103.43  <-- SCF
+      4  -5.18493627E+003 -2.08879443E+000   4.00082259E-005    2114.89  <-- SCF
+      5  -5.18493696E+003 -2.08870290E+000   2.07964877E-005    2125.02  <-- SCF
+      6  -5.18493721E+003 -2.08876096E+000   7.54653108E-006    2134.63  <-- SCF
+      7  -5.18493731E+003 -2.08903360E+000   3.09551640E-006    2143.88  <-- SCF
+      8  -5.18493737E+003 -2.08929531E+000   2.01781330E-006    2153.58  <-- SCF
+      9  -5.18493742E+003 -2.08931490E+000   1.47750148E-006    2163.09  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.386862     hbar/2                        
+Integrated |Spin Density|   =    0.498603     hbar/2                        
+ 
+Final energy, E             =  -5184.878148409     eV
+Final free energy (E-TS)    =  -5184.937423215     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.907785812     eV
+ 
+(SEDC) Total Energy Correction : -0.275380E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.631943471     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.691218277     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.661580874     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.53675
+ Energy:                              -5187.69122 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18432457E+003  0.00000000E+000                      2168.64  <-- SCF
+      1  -5.18491484E+003 -2.08359329E+000   1.78869981E-002    2178.09  <-- SCF
+      2  -5.18492267E+003 -2.08412852E+000   2.37261455E-004    2191.90  <-- SCF
+      3  -5.18491925E+003 -2.08333368E+000  -1.03498737E-004    2203.47  <-- SCF
+      4  -5.18491987E+003 -2.08397378E+000   1.88149244E-005    2214.11  <-- SCF
+      5  -5.18492021E+003 -2.08412746E+000   1.01200293E-005    2224.05  <-- SCF
+      6  -5.18492035E+003 -2.08429629E+000   4.31943763E-006    2233.66  <-- SCF
+      7  -5.18492041E+003 -2.08448737E+000   1.72910191E-006    2243.05  <-- SCF
+      8  -5.18492044E+003 -2.08441521E+000   1.20755923E-006    2252.75  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.384122     hbar/2                        
+Integrated |Spin Density|   =    0.480036     hbar/2                        
+ 
+Final energy, E             =  -5184.861926025     eV
+Final free energy (E-TS)    =  -5184.920444973     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.891185499     eV
+ 
+(SEDC) Total Energy Correction : -0.275388E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.615809237     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.674328185     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.645068711     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.48563
+ Energy:                              -5187.67433 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18469623E+003  0.00000000E+000                      2258.31  <-- SCF
+      1  -5.18491910E+003 -2.08515126E+000   6.75369185E-003    2268.00  <-- SCF
+      2  -5.18492120E+003 -2.08530435E+000   6.35492587E-005    2281.79  <-- SCF
+      3  -5.18492011E+003 -2.08445740E+000  -3.31901697E-005    2293.22  <-- SCF
+      4  -5.18492035E+003 -2.08490569E+000   7.41866035E-006    2303.14  <-- SCF
+      5  -5.18492047E+003 -2.08496899E+000   3.54598582E-006    2312.82  <-- SCF
+      6  -5.18492052E+003 -2.08505588E+000   1.68579081E-006    2322.23  <-- SCF
+      7  -5.18492055E+003 -2.08503206E+000   7.71024099E-007    2331.69  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.382018     hbar/2                        
+Integrated |Spin Density|   =    0.477561     hbar/2                        
+ 
+Final energy, E             =  -5184.861961430     eV
+Final free energy (E-TS)    =  -5184.920548424     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.891254927     eV
+ 
+(SEDC) Total Energy Correction : -0.275395E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.615908210     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.674495204     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.645201707     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.51436
+ Energy:                              -5187.67450 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18479234E+003  0.00000000E+000                      2337.18  <-- SCF
+      1  -5.18492050E+003 -2.08465992E+000   3.88385863E-003    2346.90  <-- SCF
+      2  -5.18492155E+003 -2.08473624E+000   3.16928753E-005    2360.67  <-- SCF
+      3  -5.18492099E+003 -2.08444538E+000  -1.69448323E-005    2371.83  <-- SCF
+      4  -5.18492111E+003 -2.08473067E+000   3.53165277E-006    2381.47  <-- SCF
+      5  -5.18492118E+003 -2.08481281E+000   2.05092481E-006    2390.99  <-- SCF
+      6  -5.18492120E+003 -2.08508877E+000   7.20837313E-007    2400.29  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.384843     hbar/2                        
+Integrated |Spin Density|   =    0.474860     hbar/2                        
+ 
+Final energy, E             =  -5184.862726574     eV
+Final free energy (E-TS)    =  -5184.921199296     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.891962935     eV
+ 
+(SEDC) Total Energy Correction : -0.275398E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.616710367     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.675183089     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.645946728     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.49416
+ Energy:                              -5187.67518 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18484371E+003  0.00000000E+000                      2405.79  <-- SCF
+      1  -5.18492102E+003 -2.08528420E+000   2.34251268E-003    2416.05  <-- SCF
+      2  -5.18492135E+003 -2.08530982E+000   9.96815449E-006    2428.27  <-- SCF
+      3  -5.18492117E+003 -2.08524506E+000  -5.37035746E-006    2438.50  <-- SCF
+      4  -5.18492121E+003 -2.08538503E+000   1.30213263E-006    2447.93  <-- SCF
+      5  -5.18492125E+003 -2.08556284E+000   1.23485655E-006    2457.15  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.385874     hbar/2                        
+Integrated |Spin Density|   =    0.475072     hbar/2                        
+ 
+Final energy, E             =  -5184.862821012     eV
+Final free energy (E-TS)    =  -5184.921252007     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.892036510     eV
+ 
+(SEDC) Total Energy Correction : -0.275400E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.616821608     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.675252604     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.646037106     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.50582
+ Energy:                              -5187.67525 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18485556E+003  0.00000000E+000                      2462.65  <-- SCF
+      1  -5.18492047E+003 -2.08551473E+000   1.96705206E-003    2472.72  <-- SCF
+      2  -5.18492062E+003 -2.08552668E+000   4.52202210E-006    2483.89  <-- SCF
+      3  -5.18492056E+003 -2.08558600E+000  -1.71741388E-006    2493.80  <-- SCF
+      4  -5.18492057E+003 -2.08567179E+000   1.86063764E-007    2503.29  <-- SCF
+      5  -5.18492060E+003 -2.08579199E+000   1.07930267E-006    2512.44  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.386047     hbar/2                        
+Integrated |Spin Density|   =    0.474898     hbar/2                        
+ 
+Final energy, E             =  -5184.862221719     eV
+Final free energy (E-TS)    =  -5184.920604469     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.891413094     eV
+ 
+(SEDC) Total Energy Correction : -0.275400E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.616225340     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.674608090     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.645416715     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.49776
+ Energy:                              -5187.67461 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18486540E+003  0.00000000E+000                      2517.92  <-- SCF
+      1  -5.18492057E+003 -2.08588133E+000   1.67189632E-003    2527.94  <-- SCF
+      2  -5.18492061E+003 -2.08588484E+000   1.23923490E-006    2537.58  <-- SCF
+      3  -5.18492061E+003 -2.08593437E+000  -3.50311439E-008    2547.19  <-- SCF
+      4  -5.18492060E+003 -2.08599735E+000  -2.59388579E-007    2556.49  <-- SCF
+      5  -5.18492062E+003 -2.08609025E+000   7.25484709E-007    2565.51  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.386065     hbar/2                        
+Integrated |Spin Density|   =    0.475012     hbar/2                        
+ 
+Final energy, E             =  -5184.862257506     eV
+Final free energy (E-TS)    =  -5184.920624696     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.891441101     eV
+ 
+(SEDC) Total Energy Correction : -0.275400E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.616261212     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.674628402     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.645444807     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.50222
+ Energy:                              -5187.67463 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18486629E+003  0.00000000E+000                      2571.01  <-- SCF
+      1  -5.18492050E+003 -2.08611581E+000   1.64266977E-003    2580.88  <-- SCF
+      2  -5.18492051E+003 -2.08611694E+000   4.71484226E-007    2589.44  <-- SCF
+      3  -5.18492052E+003 -2.08618095E+000   1.82776510E-007    2599.00  <-- SCF
+      4  -5.18492051E+003 -2.08622547E+000  -2.01336868E-007    2608.13  <-- SCF
+      5  -5.18492053E+003 -2.08629682E+000   4.47002717E-007    2617.03  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.386048     hbar/2                        
+Integrated |Spin Density|   =    0.475045     hbar/2                        
+ 
+Final energy, E             =  -5184.862175487     eV
+Final free energy (E-TS)    =  -5184.920527986     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.891351736     eV
+ 
+(SEDC) Total Energy Correction : -0.275400E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.616174123     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.674526621     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.645350372     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.49914
+ Energy:                              -5187.67453 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18486688E+003  0.00000000E+000                      2622.53  <-- SCF
+      1  -5.18492052E+003 -2.08634930E+000   1.62548350E-003    2632.47  <-- SCF
+      2  -5.18492053E+003 -2.08634949E+000   1.29077695E-007    2640.31  <-- SCF
+      3  -5.18492053E+003 -2.08639678E+000   1.98387471E-007    2649.77  <-- SCF
+      4  -5.18492053E+003 -2.08644007E+000  -1.34020105E-007    2658.82  <-- SCF
+      5  -5.18492054E+003 -2.08649371E+000   2.33084766E-007    2667.43  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.386068     hbar/2                        
+Integrated |Spin Density|   =    0.475099     hbar/2                        
+ 
+Final energy, E             =  -5184.862190434     eV
+Final free energy (E-TS)    =  -5184.920535921     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.891363177     eV
+ 
+(SEDC) Total Energy Correction : -0.275399E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.616182110     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.674527596     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.645354853     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.50084
+ Energy:                              -5187.67453 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18486656E+003  0.00000000E+000                      2672.95  <-- SCF
+      1  -5.18492051E+003 -2.08652589E+000   1.63480559E-003    2682.18  <-- SCF
+      2  -5.18492051E+003 -2.08652593E+000   8.75327450E-008    2689.42  <-- SCF
+      3  -5.18492052E+003 -2.08657060E+000   1.66792048E-007    2698.63  <-- SCF
+      4  -5.18492052E+003 -2.08660803E+000  -8.54384641E-008    2707.32  <-- SCF
+      5  -5.18492052E+003 -2.08665095E+000   1.38085955E-007    2715.86  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.386097     hbar/2                        
+Integrated |Spin Density|   =    0.475138     hbar/2                        
+ 
+Final energy, E             =  -5184.862181999     eV
+Final free energy (E-TS)    =  -5184.920521576     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.891351787     eV
+ 
+(SEDC) Total Energy Correction : -0.275398E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.616165905     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.674505482     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.645335693     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.49999
+ Energy:                              -5187.67451 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ LST Maximum Found!
+ Energy of reactant:                  -5189.08893 eV                            
+ Energy of product:                   -5189.08857 eV                            
+ Energy of LST maximum:               -5187.67451 eV                            
+ Location of LST maximum:                 0.49999
+ Barrier from reactant:                   1.41443 eV                            
+ Barrier from product:                    1.41406 eV                            
+ Energy of reaction:                      0.00037 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                             Coordinates: Fractional components
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +  Element    Atom                                                 +
+            +            Number           x          y          z              +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +H             1          0.458312   0.416667   0.583632           +
+            +C             1          0.165921   0.083111   0.498079           +
+            +C             2         -0.000519  -0.000152   0.495931           +
+            +C             3          0.165557   0.332700   0.499953           +
+            +C             4         -0.000424   0.249673   0.497173           +
+            +C             5          0.166444   0.583621   0.497135           +
+            +C             6         -0.000397   0.499761   0.496804           +
+            +C             7          0.166674   0.834037   0.496368           +
+            +C             8         -0.000077   0.750420   0.496318           +
+            +C             9          0.416840   0.083074   0.498087           +
+            +C            10          0.249675  -0.000249   0.497852           +
+            +C            11          0.414726   0.329722   0.512922           +
+            +C            12          0.247412   0.248454   0.501706           +
+            +C            13          0.415644   0.584892   0.501697           +
+            +C            14          0.249490   0.500606   0.499922           +
+            +C            15          0.416263   0.833525   0.495940           +
+            +C            16          0.249896   0.750488   0.496310           +
+            +C            17          0.666477   0.082871   0.496374           +
+            +C            18          0.500106  -0.000181   0.495970           +
+            +C            19          0.666916   0.332763   0.499977           +
+            +C            20          0.500760   0.248452   0.501690           +
+            +C            21          0.669008   0.584923   0.501710           +
+            +C            22          0.501690   0.503639   0.512938           +
+            +C            23          0.666713   0.833616   0.497903           +
+            +C            24          0.499535   0.750284   0.498102           +
+            +C            25          0.916470   0.082954   0.496343           +
+            +C            26          0.749709  -0.000669   0.496400           +
+            +C            27          0.916795   0.333618   0.496818           +
+            +C            28          0.749955   0.249746   0.497202           +
+            +C            29          0.916822   0.583707   0.497166           +
+            +C            30          0.750849   0.500671   0.499960           +
+            +C            31          0.916912   0.833530   0.495919           +
+            +C            32          0.750482   0.750268   0.498098           +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                           Forces: Cartesian components: eV/A                          
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +  Element    Atom                                                 +
+            +            Number           x          y          z              +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +H             1         -0.002800   0.002563  -0.846837           +
+            +C             1          0.091935  -0.122163   0.002894           +
+            +C             2         -0.007339   0.048787  -0.000734           +
+            +C             3         -0.068377   0.155332  -0.010425           +
+            +C             4         -0.027513   0.060979  -0.021391           +
+            +C             5         -0.010494  -0.060086  -0.019553           +
+            +C             6         -0.010867  -0.065596  -0.004350           +
+            +C             7          0.004762  -0.018797   0.017446           +
+            +C             8         -0.028115   0.006141   0.003201           +
+            +C             9         -0.069432  -0.114971   0.001150           +
+            +C            10         -0.013415   0.024143  -0.021991           +
+            +C            11          0.001760   0.712041  -0.683050           +
+            +C            12          0.516455   0.106423   0.576147           +
+            +C            13          0.527617  -0.096326   0.580740           +
+            +C            14         -0.086374  -0.156220  -0.002368           +
+            +C            15          0.006278  -0.047603   0.001384           +
+            +C            16          0.016313   0.005137   0.003669           +
+            +C            17         -0.013723  -0.004228   0.001410           +
+            +C            18         -0.004629   0.050755  -0.003831           +
+            +C            19          0.087888   0.153855  -0.009660           +
+            +C            20         -0.533928   0.103647   0.584668           +
+            +C            21         -0.519257  -0.106790   0.577323           +
+            +C            22         -0.000254  -0.714976  -0.679094           +
+            +C            23          0.010972  -0.023316  -0.027510           +
+            +C            24          0.076516   0.112100   0.001389           +
+            +C            25          0.025285  -0.005340   0.003061           +
+            +C            26         -0.002694   0.018054   0.023490           +
+            +C            27          0.011814   0.063332  -0.001349           +
+            +C            28          0.009206   0.059319  -0.021670           +
+            +C            29          0.030865  -0.062318  -0.022274           +
+            +C            30          0.065920  -0.155445  -0.007336           +
+            +C            31          0.009524  -0.047863   0.003319           +
+            +C            32         -0.093898   0.119433   0.002133           +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Commencing conjugate gradient refinement
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Estimating local change at LST maximum
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18484972E+003  0.00000000E+000                      2721.35  <-- SCF
+      1  -5.18492281E+003 -2.08721704E+000   2.21468513E-003    2730.70  <-- SCF
+      2  -5.18492306E+003 -2.08723716E+000   7.78922689E-006    2742.26  <-- SCF
+      3  -5.18492291E+003 -2.08705125E+000  -4.70067312E-006    2752.36  <-- SCF
+      4  -5.18492295E+003 -2.08711402E+000   1.18312141E-006    2761.60  <-- SCF
+      5  -5.18492297E+003 -2.08717167E+000   8.22747127E-007    2771.07  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.386672     hbar/2                        
+Integrated |Spin Density|   =    0.477079     hbar/2                        
+ 
+Final energy, E             =  -5184.864567257     eV
+Final free energy (E-TS)    =  -5184.922974518     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.893770887     eV
+ 
+(SEDC) Total Energy Correction : -0.275399E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.618557702     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.676964963     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.647761332     eV
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18477001E+003  0.00000000E+000                      2776.58  <-- SCF
+      1  -5.18492219E+003 -2.08736945E+000   4.61140503E-003    2786.06  <-- SCF
+      2  -5.18492330E+003 -2.08745309E+000   3.36487710E-005    2799.66  <-- SCF
+      3  -5.18492271E+003 -2.08701181E+000  -1.79030897E-005    2811.25  <-- SCF
+      4  -5.18492283E+003 -2.08718860E+000   3.82261209E-006    2821.07  <-- SCF
+      5  -5.18492290E+003 -2.08719178E+000   2.15523158E-006    2830.71  <-- SCF
+      6  -5.18492293E+003 -2.08721909E+000   7.37859179E-007    2840.19  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.386451     hbar/2                        
+Integrated |Spin Density|   =    0.476934     hbar/2                        
+ 
+Final energy, E             =  -5184.864533187     eV
+Final free energy (E-TS)    =  -5184.922927152     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.893730169     eV
+ 
+(SEDC) Total Energy Correction : -0.275397E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.618501336     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.676895302     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.647698319     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Local change at LST maximum:           -0.00013
+ RMS gradient at LST maximum:            0.40440 eV/A                          
+ Cumulative number of energy/gradient calls:     26
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Conjugate gradient step:                         1
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Commencing line minimization along search path
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.49999
+ Energy:                              -5187.67451 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18484115E+003  0.00000000E+000                      2845.49  <-- SCF
+      1  -5.18496477E+003 -2.08592304E+000   3.74599090E-003    2854.45  <-- SCF
+      2  -5.18496711E+003 -2.08599662E+000   7.11418935E-005    2869.01  <-- SCF
+      3  -5.18496575E+003 -2.08629006E+000  -4.14169707E-005    2880.87  <-- SCF
+      4  -5.18496574E+003 -2.08661061E+000  -2.90712001E-007    2891.50  <-- SCF
+      5  -5.18496577E+003 -2.08673319E+000   8.70276413E-007    2901.32  <-- SCF
+      6  -5.18496580E+003 -2.08830197E+000   9.46908473E-007    2911.02  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.388239     hbar/2                        
+Integrated |Spin Density|   =    0.480084     hbar/2                        
+ 
+Final energy, E             =  -5184.907551064     eV
+Final free energy (E-TS)    =  -5184.965797113     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.936674088     eV
+ 
+(SEDC) Total Energy Correction : -0.275418E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.661729608     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.719975657     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.690852633     eV
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18443785E+003  0.00000000E+000                      2916.29  <-- SCF
+      1  -5.18498182E+003 -2.08573912E+000   1.64839929E-002    2925.32  <-- SCF
+      2  -5.18499106E+003 -2.08593618E+000   2.79944754E-004    2939.71  <-- SCF
+      3  -5.18498518E+003 -2.08690268E+000  -1.78267686E-004    2951.38  <-- SCF
+      4  -5.18498578E+003 -2.08727505E+000   1.83589957E-005    2962.82  <-- SCF
+      5  -5.18498550E+003 -2.08754727E+000  -8.71657102E-006    2972.09  <-- SCF
+      6  -5.18498580E+003 -2.08754461E+000   9.26163870E-006    2981.68  <-- SCF
+      7  -5.18498599E+003 -2.09209047E+000   5.84370665E-006    2990.94  <-- SCF
+      8  -5.18498599E+003 -2.09202372E+000  -1.62259466E-007    3000.27  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.397785     hbar/2                        
+Integrated |Spin Density|   =    0.499596     hbar/2                        
+ 
+Final energy, E             =  -5184.928445452     eV
+Final free energy (E-TS)    =  -5184.985988142     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.957216797     eV
+ 
+(SEDC) Total Energy Correction : -0.275470E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.683149797     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.740692487     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.711921142     eV
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18480159E+003  0.00000000E+000                      3005.56  <-- SCF
+      1  -5.18498965E+003 -2.09271748E+000   5.69895946E-003    3014.68  <-- SCF
+      2  -5.18499022E+003 -2.09273168E+000   1.72031052E-005    3028.44  <-- SCF
+      3  -5.18498505E+003 -2.09130992E+000  -1.56530351E-004    3039.95  <-- SCF
+      4  -5.18498939E+003 -2.09182843E+000   1.31364173E-004    3049.33  <-- SCF
+      5  -5.18498830E+003 -2.09183722E+000  -3.30419336E-005    3058.42  <-- SCF
+      6  -5.18498938E+003 -2.09187635E+000   3.26991825E-005    3067.53  <-- SCF
+      7  -5.18498937E+003 -2.09197882E+000  -3.50149495E-007    3076.65  <-- SCF
+      8  -5.18498956E+003 -2.09206496E+000   5.95457044E-006    3086.28  <-- SCF
+      9  -5.18498977E+003 -2.09416913E+000   6.22198906E-006    3095.75  <-- SCF
+     10  -5.18498976E+003 -2.09418764E+000  -2.71392124E-007    3104.77  <-- SCF
+     11  -5.18498918E+003 -2.09467706E+000  -1.76569533E-005    3114.48  <-- SCF
+     12  -5.18498970E+003 -2.09498335E+000   1.57509820E-005    3123.63  <-- SCF
+     13  -5.18498935E+003 -2.09554349E+000  -1.03558768E-005    3132.51  <-- SCF
+     14  -5.18498953E+003 -2.09593267E+000   5.26807853E-006    3141.93  <-- SCF
+     15  -5.18498960E+003 -2.09635070E+000   2.20850531E-006    3151.22  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.459203     hbar/2                        
+Integrated |Spin Density|   =    0.572937     hbar/2                        
+ 
+Final energy, E             =  -5184.933912895     eV
+Final free energy (E-TS)    =  -5184.989601416     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.961757156     eV
+ 
+(SEDC) Total Energy Correction : -0.275447E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.688380839     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.744069360     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.716225100     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Line search successful
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ RMS gradient:                            0.30595 eV/A                          
+ Energy:                              -5187.74407 eV                            
+ Energy change:                           0.06956 eV                            
+ Cumulative number of energy/gradient calls:     29
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Projection along local tangent at maximum:      0.00000
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Conjugate gradient step:                         1
+ Maximum number of conjugate gradient steps:     60
+ Cumulative number of energy/gradient calls:     29
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Setting up next conjugate search direction
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Conjugate gradient step:                         2
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Commencing line minimization along search path
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.49990
+ Energy:                              -5187.74407 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18499641E+003  0.00000000E+000                      3156.51  <-- SCF
+      1  -5.18501631E+003 -2.07983285E+000   6.02889729E-004    3166.45  <-- SCF
+      2  -5.18501764E+003 -2.07989863E+000   4.05727990E-005    3180.50  <-- SCF
+      3  -5.18501688E+003 -2.08119016E+000  -2.33218116E-005    3191.93  <-- SCF
+      4  -5.18501712E+003 -2.08161687E+000   7.41565089E-006    3201.19  <-- SCF
+      5  -5.18501730E+003 -2.08153048E+000   5.33364395E-006    3210.73  <-- SCF
+      6  -5.18501735E+003 -2.08150002E+000   1.54032925E-006    3220.01  <-- SCF
+      7  -5.18501740E+003 -2.08021959E+000   1.66816799E-006    3229.40  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.458904     hbar/2                        
+Integrated |Spin Density|   =    0.565216     hbar/2                        
+ 
+Final energy, E             =  -5184.962129417     eV
+Final free energy (E-TS)    =  -5185.017401860     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5184.989765639     eV
+ 
+(SEDC) Total Energy Correction : -0.275497E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.717102831     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.772375274     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.744739053     eV
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18436746E+003  0.00000000E+000                      3234.71  <-- SCF
+      1  -5.18502978E+003 -2.03755791E+000   2.00702448E-002    3243.68  <-- SCF
+      2  -5.18504010E+003 -2.03798303E+000   3.12752891E-004    3257.89  <-- SCF
+      3  -5.18503609E+003 -2.04107618E+000  -1.21554648E-004    3269.61  <-- SCF
+      4  -5.18503628E+003 -2.04211187E+000   5.90559810E-006    3281.07  <-- SCF
+      5  -5.18503651E+003 -2.04158090E+000   6.93794787E-006    3290.62  <-- SCF
+      6  -5.18503659E+003 -2.04151452E+000   2.44827260E-006    3300.11  <-- SCF
+      7  -5.18503681E+003 -2.03683319E+000   6.63682162E-006    3309.66  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.451696     hbar/2                        
+Integrated |Spin Density|   =    0.550625     hbar/2                        
+ 
+Final energy, E             =  -5184.982262709     eV
+Final free energy (E-TS)    =  -5185.036813383     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.009538046     eV
+ 
+(SEDC) Total Energy Correction : -0.275611E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.738370397     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.792921071     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.765645734     eV
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18478882E+003  0.00000000E+000                      3314.95  <-- SCF
+      1  -5.18503846E+003 -2.04609901E+000   7.56466928E-003    3324.25  <-- SCF
+      2  -5.18503882E+003 -2.04611743E+000   1.10322385E-005    3337.08  <-- SCF
+      3  -5.18503491E+003 -2.04573882E+000  -1.18614735E-004    3347.31  <-- SCF
+      4  -5.18503857E+003 -2.04518417E+000   1.11053946E-004    3356.75  <-- SCF
+      5  -5.18503697E+003 -2.04513956E+000  -4.85783142E-005    3366.06  <-- SCF
+      6  -5.18503807E+003 -2.04501817E+000   3.35407138E-005    3375.17  <-- SCF
+      7  -5.18503793E+003 -2.04479838E+000  -4.47213516E-006    3384.81  <-- SCF
+      8  -5.18503813E+003 -2.04463426E+000   6.26291117E-006    3394.35  <-- SCF
+      9  -5.18503831E+003 -2.04315450E+000   5.45116348E-006    3403.88  <-- SCF
+     10  -5.18503832E+003 -2.04308712E+000   1.91183258E-007    3413.63  <-- SCF
+     11  -5.18503779E+003 -2.04277444E+000  -1.61729885E-005    3423.17  <-- SCF
+     12  -5.18503821E+003 -2.04258132E+000   1.28757282E-005    3432.34  <-- SCF
+     13  -5.18503789E+003 -2.04225329E+000  -9.76240965E-006    3441.79  <-- SCF
+     14  -5.18503813E+003 -2.04193862E+000   7.26165753E-006    3451.23  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.407854     hbar/2                        
+Integrated |Spin Density|   =    0.516225     hbar/2                        
+ 
+Final energy, E             =  -5184.982432074     eV
+Final free energy (E-TS)    =  -5185.038128258     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.010280166     eV
+ 
+(SEDC) Total Energy Correction : -0.275514E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.737575110     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.793271294     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.765423202     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Line search successful
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ RMS gradient:                            0.26463 eV/A                          
+ Energy:                              -5187.79327 eV                            
+ Energy change:                           0.04920 eV                            
+ Cumulative number of energy/gradient calls:     32
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Projection along local tangent at maximum:      0.00000
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Conjugate gradient step:                         2
+ Maximum number of conjugate gradient steps:     60
+ Cumulative number of energy/gradient calls:     32
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Setting up next conjugate search direction
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Conjugate gradient step:                         3
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Commencing line minimization along search path
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.49989
+ Energy:                              -5187.79327 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18507758E+003  0.00000000E+000                      3456.53  <-- SCF
+      1  -5.18505875E+003 -2.01559770E+000  -5.70535318E-004    3466.01  <-- SCF
+      2  -5.18505961E+003 -2.01563691E+000   2.59775638E-005    3480.06  <-- SCF
+      3  -5.18505900E+003 -2.02304839E+000  -1.83536238E-005    3491.63  <-- SCF
+      4  -5.18505891E+003 -2.02066633E+000  -2.84048951E-006    3501.08  <-- SCF
+      5  -5.18505902E+003 -2.02064435E+000   3.38333010E-006    3510.52  <-- SCF
+      6  -5.18505921E+003 -2.01664311E+000   5.85094135E-006    3519.94  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.410962     hbar/2                        
+Integrated |Spin Density|   =    0.510268     hbar/2                        
+ 
+Final energy, E             =  -5185.003623460     eV
+Final free energy (E-TS)    =  -5185.059210672     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.031417066     eV
+ 
+(SEDC) Total Energy Correction : -0.275585E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.759473733     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.815060945     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.787267339     eV
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18456147E+003  0.00000000E+000                      3525.25  <-- SCF
+      1  -5.18507682E+003 -1.94003983E+000   1.56167325E-002    3534.32  <-- SCF
+      2  -5.18508504E+003 -1.94042316E+000   2.49120714E-004    3548.50  <-- SCF
+      3  -5.18507502E+003 -1.95908524E+000  -3.03528996E-004    3560.20  <-- SCF
+      4  -5.18507726E+003 -1.95289522E+000   6.76563315E-005    3571.77  <-- SCF
+      5  -5.18507701E+003 -1.95294718E+000  -7.37942084E-006    3581.61  <-- SCF
+      6  -5.18507792E+003 -1.95252618E+000   2.75122083E-005    3591.06  <-- SCF
+      7  -5.18507813E+003 -1.95183075E+000   6.41280793E-006    3600.31  <-- SCF
+      8  -5.18507845E+003 -1.95072926E+000   9.79170683E-006    3609.67  <-- SCF
+      9  -5.18507879E+003 -1.94994398E+000   1.02321568E-005    3618.74  <-- SCF
+     10  -5.18508064E+003 -1.93607485E+000   5.59839583E-005    3628.12  <-- SCF
+     11  -5.18505852E+003 -1.93272122E+000  -6.70303706E-004    3638.80  <-- SCF
+     12  -5.18507442E+003 -1.93054028E+000   4.81732537E-004    3648.97  <-- SCF
+     13  -5.18506094E+003 -1.92791639E+000  -4.08452661E-004    3658.35  <-- SCF
+     14  -5.18506710E+003 -1.92508551E+000   1.86573683E-004    3668.30  <-- SCF
+     15  -5.18506562E+003 -1.92277682E+000  -4.48169606E-005    3678.15  <-- SCF
+     16  -5.18506780E+003 -1.91982839E+000   6.61015794E-005    3688.17  <-- SCF
+     17  -5.18507308E+003 -1.91633056E+000   1.60070507E-004    3698.17  <-- SCF
+     18  -5.18507865E+003 -1.91329711E+000   1.68812049E-004    3708.48  <-- SCF
+     19  -5.18508205E+003 -1.91190037E+000   1.03149104E-004    3718.14  <-- SCF
+     20  -5.18508343E+003 -1.91157156E+000   4.17069190E-005    3727.86  <-- SCF
+     21  -5.18508382E+003 -1.91156642E+000   1.18947359E-005    3737.38  <-- SCF
+     22  -5.18508397E+003 -1.91164176E+000   4.44788046E-006    3747.10  <-- SCF
+     23  -5.18508404E+003 -1.91164241E+000   1.99360234E-006    3756.77  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.491614E-01 hbar/2                        
+Integrated |Spin Density|   =    0.665891E-01 hbar/2                        
+ 
+Final energy, E             =  -5185.022684052     eV
+Final free energy (E-TS)    =  -5185.084035948     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.053360000     eV
+ 
+(SEDC) Total Energy Correction : -0.275412E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.776804941     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.838156836     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.807480888     eV
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18493787E+003  0.00000000E+000                      3762.06  <-- SCF
+      1  -5.18508425E+003 -1.92342625E+000   4.43593006E-003    3772.16  <-- SCF
+      2  -5.18508436E+003 -1.92343278E+000   3.14665838E-006    3782.64  <-- SCF
+      3  -5.18508396E+003 -1.91941615E+000  -1.19789009E-005    3792.34  <-- SCF
+      4  -5.18508426E+003 -1.92066528E+000   9.16413834E-006    3801.56  <-- SCF
+      5  -5.18508405E+003 -1.92051708E+000  -6.34275951E-006    3810.81  <-- SCF
+      6  -5.18508427E+003 -1.92060138E+000   6.60085524E-006    3819.82  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.530101E-01 hbar/2                        
+Integrated |Spin Density|   =    0.673272E-01 hbar/2                        
+ 
+Final energy, E             =  -5185.022275966     eV
+Final free energy (E-TS)    =  -5185.084271482     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.053273724     eV
+ 
+(SEDC) Total Energy Correction : -0.275413E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.776403659     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.838399175     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.807401417     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Line search successful
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ RMS gradient:                            0.37053 eV/A                          
+ Energy:                              -5187.83840 eV                            
+ Energy change:                           0.04513 eV                            
+ Cumulative number of energy/gradient calls:     35
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Projection along local tangent at maximum:      0.00000
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Conjugate gradient step:                         3
+ Maximum number of conjugate gradient steps:     60
+ Cumulative number of energy/gradient calls:     35
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Setting up next conjugate search direction
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Conjugate gradient step:                         4
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Commencing line minimization along search path
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.49980
+ Energy:                              -5187.83840 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18529820E+003  0.00000000E+000                      3825.12  <-- SCF
+      1  -5.18512669E+003 -1.85062512E+000  -5.19742062E-003    3834.73  <-- SCF
+      2  -5.18512873E+003 -1.85076093E+000   6.19568468E-005    3848.45  <-- SCF
+      3  -5.18512611E+003 -1.87049699E+000  -7.95570747E-005    3860.07  <-- SCF
+      4  -5.18512610E+003 -1.86493790E+000  -2.48545149E-007    3869.87  <-- SCF
+      5  -5.18512607E+003 -1.86553782E+000  -7.78779531E-007    3879.64  <-- SCF
+      6  -5.18512602E+003 -1.86503521E+000  -1.45502036E-006    3889.41  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.473056E-01 hbar/2                        
+Integrated |Spin Density|   =    0.643090E-01 hbar/2                        
+ 
+Final energy, E             =  -5185.068732552     eV
+Final free energy (E-TS)    =  -5185.126023540     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.097378046     eV
+ 
+(SEDC) Total Energy Correction : -0.275567E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.824403732     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.881694720     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.853049226     eV
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18409672E+003  0.00000000E+000                      3894.74  <-- SCF
+      1  -5.18517838E+003 -1.69844294E+000   3.27777904E-002    3904.32  <-- SCF
+      2  -5.18521455E+003 -1.70058329E+000   1.09593137E-003    3917.94  <-- SCF
+      3  -5.18519471E+003 -1.72292568E+000  -6.01171465E-004    3929.89  <-- SCF
+      4  -5.18519522E+003 -1.71341034E+000   1.53401097E-005    3941.76  <-- SCF
+      5  -5.18519425E+003 -1.71431237E+000  -2.91640453E-005    3951.89  <-- SCF
+      6  -5.18519478E+003 -1.71267996E+000   1.60636692E-005    3961.39  <-- SCF
+      7  -5.18519408E+003 -1.71084949E+000  -2.14335316E-005    3970.77  <-- SCF
+      8  -5.18519487E+003 -1.70872860E+000   2.41701595E-005    3980.14  <-- SCF
+      9  -5.18519472E+003 -1.70654227E+000  -4.73152826E-006    3989.19  <-- SCF
+     10  -5.18519514E+003 -1.70426656E+000   1.26403979E-005    3998.10  <-- SCF
+     11  -5.18518508E+003 -1.70362241E+000  -3.04646716E-004    4007.76  <-- SCF
+     12  -5.18519448E+003 -1.70359849E+000   2.84750793E-004    4016.86  <-- SCF
+     13  -5.18519086E+003 -1.70316493E+000  -1.09794507E-004    4025.52  <-- SCF
+     14  -5.18519346E+003 -1.70249779E+000   7.89360178E-005    4034.63  <-- SCF
+     15  -5.18519304E+003 -1.70173907E+000  -1.28986868E-005    4043.55  <-- SCF
+     16  -5.18519411E+003 -1.70056802E+000   3.27145136E-005    4053.23  <-- SCF
+     17  -5.18519521E+003 -1.69911785E+000   3.30503731E-005    4062.84  <-- SCF
+     18  -5.18519565E+003 -1.69836177E+000   1.34332636E-005    4072.47  <-- SCF
+     19  -5.18519568E+003 -1.69793805E+000   7.94905642E-007    4082.03  <-- SCF
+     20  -5.18519563E+003 -1.69766312E+000  -1.45194853E-006    4091.64  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.659233E-03 hbar/2                        
+Integrated |Spin Density|   =    0.622540E-02 hbar/2                        
+ 
+Final energy, E             =  -5185.152583882     eV
+Final free energy (E-TS)    =  -5185.195627127     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.174105505     eV
+ 
+(SEDC) Total Energy Correction : -0.275275E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.905335645     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.948378890     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.926857268     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Line search successful
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ RMS gradient:                            0.43602 eV/A                          
+ Energy:                              -5187.94838 eV                            
+ Energy change:                           0.10998 eV                            
+ Cumulative number of energy/gradient calls:     37
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Projection along local tangent at maximum:      0.00000
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Conjugate gradient step:                         4
+ Maximum number of conjugate gradient steps:     60
+ Cumulative number of energy/gradient calls:     37
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Setting up next conjugate search direction
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Conjugate gradient step:                         5
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Commencing line minimization along search path
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Path coordinate:                         0.49973
+ Energy:                              -5187.94838 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18558813E+003  0.00000000E+000                      4096.97  <-- SCF
+      1  -5.18524452E+003 -1.66530849E+000  -1.04125124E-002    4106.36  <-- SCF
+      2  -5.18524670E+003 -1.66538830E+000   6.60413547E-005    4120.77  <-- SCF
+      3  -5.18524457E+003 -1.66486665E+000  -6.45097172E-005    4132.67  <-- SCF
+      4  -5.18524431E+003 -1.66555602E+000  -7.89896525E-006    4144.04  <-- SCF
+      5  -5.18524435E+003 -1.66530892E+000   1.48430655E-006    4153.66  <-- SCF
+      6  -5.18524434E+003 -1.66514560E+000  -5.06029303E-007    4163.27  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =   -0.109364E-02 hbar/2                        
+Integrated |Spin Density|   =    0.444128E-02 hbar/2                        
+ 
+Final energy, E             =  -5185.204262947     eV
+Final free energy (E-TS)    =  -5185.244338213     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.224300580     eV
+ 
+(SEDC) Total Energy Correction : -0.275312E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.957378551     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5187.997453817     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.977416184     eV
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18572118E+003  0.00000000E+000                      4168.57  <-- SCF
+      1  -5.18525076E+003 -1.63271885E+000  -1.42548985E-002    4177.74  <-- SCF
+      2  -5.18525675E+003 -1.63289086E+000   1.81402679E-004    4192.07  <-- SCF
+      3  -5.18525140E+003 -1.62737620E+000  -1.62162200E-004    4204.05  <-- SCF
+      4  -5.18525083E+003 -1.62938648E+000  -1.71738548E-005    4215.67  <-- SCF
+      5  -5.18525079E+003 -1.62883128E+000  -1.13804474E-006    4225.23  <-- SCF
+      6  -5.18525084E+003 -1.62865167E+000   1.40597068E-006    4234.55  <-- SCF
+      7  -5.18525081E+003 -1.62843881E+000  -1.01456677E-006    4243.97  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =   -0.802814E-03 hbar/2                        
+Integrated |Spin Density|   =    0.273140E-02 hbar/2                        
+ 
+Final energy, E             =  -5185.212947240     eV
+Final free energy (E-TS)    =  -5185.250807721     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.231877481     eV
+ 
+(SEDC) Total Energy Correction : -0.275306E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.966004204     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5188.003864685     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.984934445     eV
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18461522E+003  0.00000000E+000                      4249.29  <-- SCF
+      1  -5.18525961E+003 -1.64034655E+000   1.95271881E-002    4259.02  <-- SCF
+      2  -5.18526051E+003 -1.64038356E+000   2.71919579E-005    4273.23  <-- SCF
+      3  -5.18525951E+003 -1.64193609E+000  -3.02174652E-005    4285.06  <-- SCF
+      4  -5.18525944E+003 -1.64097293E+000  -2.30334710E-006    4295.35  <-- SCF
+      5  -5.18525944E+003 -1.64093028E+000   1.42907365E-007    4304.71  <-- SCF
+      6  -5.18525947E+003 -1.64082142E+000   7.98837320E-007    4313.84  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =    0.589113E-03 hbar/2                        
+Integrated |Spin Density|   =    0.217840E-02 hbar/2                        
+ 
+Final energy, E             =  -5185.220999101     eV
+Final free energy (E-TS)    =  -5185.259467937     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.240233519     eV
+ 
+(SEDC) Total Energy Correction : -0.275282E+01 eV
+
+Dispersion corrected final energy*, Ecor          =  -5187.973814246     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5188.012283081     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.993048663     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Line search successful
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ RMS gradient:                            0.23797 eV/A                          
+ Energy:                              -5188.01228 eV                            
+ Energy change:                           0.06390 eV                            
+ Cumulative number of energy/gradient calls:     40
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.18521154E+003  0.00000000E+000                      4319.05  <-- SCF
+      1  -5.18525946E+003 -1.64069730E+000   1.45220433E-003    4327.20  <-- SCF
+      2  -5.18525946E+003 -1.64069731E+000   5.87481882E-009    4335.18  <-- SCF
+      3  -5.18525949E+003 -1.64060745E+000   7.35793959E-007    4344.70  <-- SCF
+      4  -5.18525948E+003 -1.64055548E+000  -1.06169785E-007    4353.48  <-- SCF
+      5  -5.18525952E+003 -1.64004459E+000   1.14009454E-006    4362.96  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Integrated Spin Density     =   -0.153442E-03 hbar/2                        
+Integrated |Spin Density|   =    0.543258E-03 hbar/2                        
+ 
+Final energy, E             =  -5185.221055541     eV
+Final free energy (E-TS)    =  -5185.259521456     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -5185.240288499     eV
+ 
+
+Dispersion corrected final energy*, Ecor          =  -5187.973870686     eV
+Dispersion corrected final free energy* (Ecor-TS) =  -5188.012336600     eV
+NB dispersion corrected est. 0K energy* (Ecor-0.5TS) =  -5187.993103643     eV
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Transition State Found!
+ Energy of reactant:                  -5189.08893 eV                            
+ Energy of product:                   -5189.08857 eV                            
+ Energy of transition state:          -5188.01234 eV                            
+ Location of transition state:            0.49972
+ Barrier from reactant:                   1.07660 eV                            
+ Barrier from product:                    1.07623 eV                            
+ Energy of reaction:                      0.00037 eV                            
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                             Coordinates: Fractional components
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +  Element    Atom                                                 +
+            +            Number           x          y          z              +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +H             1          0.458180   0.416665   0.564283           +
+            +C             1          0.165364   0.081783   0.500259           +
+            +C             2         -0.000689  -0.000539   0.496475           +
+            +C             3          0.166040   0.332692   0.501669           +
+            +C             4          0.000616   0.250691   0.497183           +
+            +C             5          0.166397   0.582610   0.497200           +
+            +C             6         -0.000554   0.499357   0.496270           +
+            +C             7          0.166153   0.833082   0.495920           +
+            +C             8         -0.001321   0.749480   0.496317           +
+            +C             9          0.416031   0.081755   0.500278           +
+            +C            10          0.249029  -0.001639   0.498102           +
+            +C            11          0.414767   0.329929   0.508730           +
+            +C            12          0.246665   0.247201   0.504520           +
+            +C            13          0.416094   0.586178   0.504567           +
+            +C            14          0.250061   0.500639   0.501716           +
+            +C            15          0.416390   0.833881   0.496462           +
+            +C            16          0.250332   0.749568   0.496317           +
+            +C            17          0.666092   0.083808   0.496337           +
+            +C            18          0.500036  -0.000502   0.496452           +
+            +C            19          0.666324   0.332729   0.501706           +
+            +C            20          0.500297   0.247183   0.504565           +
+            +C            21          0.669708   0.586143   0.504547           +
+            +C            22          0.501605   0.503420   0.508737           +
+            +C            23          0.667383   0.834993   0.498101           +
+            +C            24          0.500378   0.751619   0.500273           +
+            +C            25          0.917734   0.083872   0.496343           +
+            +C            26          0.750261   0.000285   0.495970           +
+            +C            27          0.916955   0.334006   0.496292           +
+            +C            28          0.750008   0.250758   0.497207           +
+            +C            29          0.915771   0.582663   0.497167           +
+            +C            30          0.750352   0.500666   0.501683           +
+            +C            31          0.917083   0.833873   0.496483           +
+            +C            32          0.751027   0.751563   0.500266           +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                           Forces: Cartesian components: eV/A                          
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +  Element    Atom                                                 +
+            +            Number           x          y          z              +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            +H             1         -0.000402  -0.000384   0.020362           +
+            +C             1          0.074585   0.123655  -0.171946           +
+            +C             2          0.038734   0.332916   0.152031           +
+            +C             3         -0.068304   0.051226  -0.050607           +
+            +C             4         -0.067346  -0.210575   0.093647           +
+            +C             5         -0.030325   0.212538   0.090998           +
+            +C             6         -0.024017  -0.054813   0.032947           +
+            +C             7          0.025456  -0.172159  -0.007370           +
+            +C             8          0.285159   0.124961  -0.031013           +
+            +C             9         -0.029544   0.119255  -0.175383           +
+            +C            10         -0.022936   0.024859   0.250530           +
+            +C            11          0.015700   0.085655   0.078598           +
+            +C            12          0.119740   0.005879  -0.160032           +
+            +C            13          0.155179  -0.007212  -0.166523           +
+            +C            14         -0.098033  -0.056266  -0.063618           +
+            +C            15          0.085360  -0.318878   0.150838           +
+            +C            16         -0.335739   0.118936  -0.031853           +
+            +C            17          0.333783  -0.121498  -0.032384           +
+            +C            18         -0.089301   0.319149   0.156932           +
+            +C            19          0.105488   0.052804  -0.059528           +
+            +C            20         -0.157590   0.010584  -0.166672           +
+            +C            21         -0.116023  -0.002833  -0.164139           +
+            +C            22         -0.013679  -0.085472   0.078716           +
+            +C            23          0.017202  -0.020088   0.255815           +
+            +C            24          0.034072  -0.125689  -0.172273           +
+            +C            25         -0.291025  -0.124653  -0.031547           +
+            +C            26         -0.023056   0.168723  -0.015315           +
+            +C            27          0.022578   0.055067   0.028162           +
+            +C            28          0.026520  -0.209558   0.092709           +
+            +C            29          0.073238   0.210817   0.093580           +
+            +C            30          0.064918  -0.050446  -0.053724           +
+            +C            31         -0.038294  -0.330550   0.147523           +
+            +C            32         -0.072098  -0.125948  -0.169460           +
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ 
+ ************************************** Forces **************************************
+ *                                                                                  *
+ *                           Cartesian components (eV/A)                            *
+ * -------------------------------------------------------------------------------- *
+ *                         x                    y                    z              *
+ *                                                                                  *
+ * H               1     -0.00040             -0.00038              0.02036         *
+ * C               1      0.07458              0.12365             -0.17195         *
+ * C               2      0.03873              0.33292              0.15203         *
+ * C               3     -0.06830              0.05123             -0.05061         *
+ * C               4     -0.06735             -0.21057              0.09365         *
+ * C               5     -0.03033              0.21254              0.09100         *
+ * C               6     -0.02402             -0.05481              0.03295         *
+ * C               7      0.02546             -0.17216             -0.00737         *
+ * C               8      0.28516              0.12496             -0.03101         *
+ * C               9     -0.02954              0.11925             -0.17538         *
+ * C              10     -0.02294              0.02486              0.25053         *
+ * C              11      0.01570              0.08565              0.07860         *
+ * C              12      0.11974              0.00588             -0.16003         *
+ * C              13      0.15518             -0.00721             -0.16652         *
+ * C              14     -0.09803             -0.05627             -0.06362         *
+ * C              15      0.08536             -0.31888              0.15084         *
+ * C              16     -0.33574              0.11894             -0.03185         *
+ * C              17      0.33378             -0.12150             -0.03238         *
+ * C              18     -0.08930              0.31915              0.15693         *
+ * C              19      0.10549              0.05280             -0.05953         *
+ * C              20     -0.15759              0.01058             -0.16667         *
+ * C              21     -0.11602             -0.00283             -0.16414         *
+ * C              22     -0.01368             -0.08547              0.07872         *
+ * C              23      0.01720             -0.02009              0.25582         *
+ * C              24      0.03407             -0.12569             -0.17227         *
+ * C              25     -0.29102             -0.12465             -0.03155         *
+ * C              26     -0.02306              0.16872             -0.01531         *
+ * C              27      0.02258              0.05507              0.02816         *
+ * C              28      0.02652             -0.20956              0.09271         *
+ * C              29      0.07324              0.21082              0.09358         *
+ * C              30      0.06492             -0.05045             -0.05372         *
+ * C              31     -0.03829             -0.33055              0.14752         *
+ * C              32     -0.07210             -0.12595             -0.16946         *
+ *                                                                                  *
+ ************************************************************************************
+ 
+ Pseudo atomic calculation performed for H 1s1
+ 
+ Converged in 12 iterations to a total energy of -12.4790 eV
+ 
+ Pseudo atomic calculation performed for C 2s2 2p2
+ 
+ Converged in 17 iterations to a total energy of -152.4291 eV
+Charge spilling parameter for spin component 1 = 1.13%
+Charge spilling parameter for spin component 2 = 1.13%
+ 
+                   Orbital Populations                  
+  ---------------------------------------------------------------
+     Ion    Atom   Orbital              Up        Down      Spin
+  ---------------------------------------------------------------
+      H     1      S                    0.306     0.307    -0.000
+      C     1      S                    0.512     0.512     0.000
+      C     1      Px                   0.495     0.496    -0.000
+      C     1      Py                   0.490     0.490     0.000
+      C     1      Pz                   0.504     0.504     0.000
+      C     2      S                    0.511     0.511     0.000
+      C     2      Px                   0.494     0.494    -0.000
+      C     2      Py                   0.494     0.495    -0.000
+      C     2      Pz                   0.502     0.502     0.000
+      C     3      S                    0.514     0.514     0.000
+      C     3      Px                   0.496     0.496    -0.000
+      C     3      Py                   0.493     0.493     0.000
+      C     3      Pz                   0.500     0.500     0.000
+      C     4      S                    0.512     0.512     0.000
+      C     4      Px                   0.492     0.492     0.000
+      C     4      Py                   0.493     0.493    -0.000
+      C     4      Pz                   0.507     0.507     0.000
+      C     5      S                    0.512     0.512     0.000
+      C     5      Px                   0.492     0.492    -0.000
+      C     5      Py                   0.493     0.492     0.000
+      C     5      Pz                   0.507     0.507     0.000
+      C     6      S                    0.512     0.512     0.000
+      C     6      Px                   0.492     0.492     0.000
+      C     6      Py                   0.494     0.494    -0.000
+      C     6      Pz                   0.505     0.505     0.000
+      C     7      S                    0.513     0.513    -0.000
+      C     7      Px                   0.491     0.491    -0.000
+      C     7      Py                   0.493     0.493    -0.000
+      C     7      Pz                   0.507     0.507     0.000
+      C     8      S                    0.514     0.514     0.000
+      C     8      Px                   0.493     0.493     0.000
+      C     8      Py                   0.493     0.493    -0.000
+      C     8      Pz                   0.501     0.501     0.000
+      C     9      S                    0.512     0.512    -0.000
+      C     9      Px                   0.495     0.495    -0.000
+      C     9      Py                   0.490     0.490     0.000
+      C     9      Pz                   0.504     0.504     0.000
+      C    10      S                    0.512     0.512     0.000
+      C    10      Px                   0.490     0.490    -0.000
+      C    10      Py                   0.495     0.495    -0.000
+      C    10      Pz                   0.508     0.508     0.000
+      C    11      S                    0.545     0.545    -0.000
+      C    11      Px                   0.514     0.514    -0.000
+      C    11      Py                   0.480     0.480    -0.000
+      C    11      Pz                   0.519     0.519    -0.000
+      C    12      S                    0.510     0.510     0.000
+      C    12      Px                   0.484     0.484     0.000
+      C    12      Py                   0.496     0.496    -0.000
+      C    12      Pz                   0.513     0.513     0.000
+      C    13      S                    0.510     0.510     0.000
+      C    13      Px                   0.484     0.484    -0.000
+      C    13      Py                   0.496     0.496    -0.000
+      C    13      Pz                   0.514     0.514     0.000
+      C    14      S                    0.514     0.514     0.000
+      C    14      Px                   0.496     0.496     0.000
+      C    14      Py                   0.493     0.493    -0.000
+      C    14      Pz                   0.500     0.500     0.000
+      C    15      S                    0.511     0.511    -0.000
+      C    15      Px                   0.494     0.494    -0.000
+      C    15      Py                   0.494     0.494    -0.000
+      C    15      Pz                   0.502     0.502     0.000
+      C    16      S                    0.514     0.514     0.000
+      C    16      Px                   0.493     0.493     0.000
+      C    16      Py                   0.493     0.493    -0.000
+      C    16      Pz                   0.501     0.501     0.000
+      C    17      S                    0.514     0.514     0.000
+      C    17      Px                   0.493     0.493    -0.000
+      C    17      Py                   0.493     0.493     0.000
+      C    17      Pz                   0.501     0.501     0.000
+      C    18      S                    0.511     0.511     0.000
+      C    18      Px                   0.494     0.494     0.000
+      C    18      Py                   0.494     0.494    -0.000
+      C    18      Pz                   0.502     0.502     0.000
+      C    19      S                    0.514     0.514    -0.000
+      C    19      Px                   0.496     0.496     0.000
+      C    19      Py                   0.493     0.493     0.000
+      C    19      Pz                   0.500     0.500     0.000
+      C    20      S                    0.510     0.510     0.000
+      C    20      Px                   0.484     0.484     0.000
+      C    20      Py                   0.496     0.496    -0.000
+      C    20      Pz                   0.514     0.514    -0.000
+      C    21      S                    0.510     0.510    -0.000
+      C    21      Px                   0.484     0.484    -0.000
+      C    21      Py                   0.496     0.496    -0.000
+      C    21      Pz                   0.513     0.513     0.000
+      C    22      S                    0.545     0.545    -0.000
+      C    22      Px                   0.514     0.514     0.000
+      C    22      Py                   0.480     0.480    -0.000
+      C    22      Pz                   0.519     0.519    -0.000
+      C    23      S                    0.512     0.512    -0.000
+      C    23      Px                   0.490     0.491    -0.000
+      C    23      Py                   0.495     0.495     0.000
+      C    23      Pz                   0.508     0.508     0.000
+      C    24      S                    0.512     0.512     0.000
+      C    24      Px                   0.495     0.495    -0.000
+      C    24      Py                   0.490     0.490    -0.000
+      C    24      Pz                   0.504     0.504     0.000
+      C    25      S                    0.514     0.514     0.000
+      C    25      Px                   0.493     0.493    -0.000
+      C    25      Py                   0.493     0.493     0.000
+      C    25      Pz                   0.501     0.501     0.000
+      C    26      S                    0.513     0.513     0.000
+      C    26      Px                   0.491     0.491    -0.000
+      C    26      Py                   0.493     0.493    -0.000
+      C    26      Pz                   0.507     0.507     0.000
+      C    27      S                    0.512     0.512    -0.000
+      C    27      Px                   0.492     0.492    -0.000
+      C    27      Py                   0.494     0.494     0.000
+      C    27      Pz                   0.505     0.505     0.000
+      C    28      S                    0.512     0.512     0.000
+      C    28      Px                   0.492     0.492     0.000
+      C    28      Py                   0.493     0.493    -0.000
+      C    28      Pz                   0.507     0.507     0.000
+      C    29      S                    0.512     0.512     0.000
+      C    29      Px                   0.492     0.492    -0.000
+      C    29      Py                   0.493     0.493     0.000
+      C    29      Pz                   0.507     0.507     0.000
+      C    30      S                    0.514     0.514     0.000
+      C    30      Px                   0.496     0.496     0.000
+      C    30      Py                   0.493     0.493    -0.000
+      C    30      Pz                   0.500     0.500     0.000
+      C    31      S                    0.511     0.511    -0.000
+      C    31      Px                   0.494     0.494    -0.000
+      C    31      Py                   0.494     0.494    -0.000
+      C    31      Pz                   0.502     0.502     0.000
+      C    32      S                    0.512     0.512     0.000
+      C    32      Px                   0.496     0.496     0.000
+      C    32      Py                   0.490     0.491    -0.000
+      C    32      Pz                   0.504     0.504    -0.000
+  ---------------------------------------------------------------
+                           Total:      64.499    64.499    -0.000
+  ---------------------------------------------------------------
+ 
+     Atomic Populations (Mulliken)
+     -----------------------------
+Species          Ion Spin      s       p       d       f      Total   Charge(e)   Spin(hbar/2)
+==============================================================================================
+  H               1   up:     0.306   0.000   0.000   0.000   0.306     0.387       -0.000
+                  1   dn:     0.307   0.000   0.000   0.000   0.307
+  C               1   up:     0.512   1.490   0.000   0.000   2.001    -0.003        0.000
+                  1   dn:     0.512   1.490   0.000   0.000   2.001
+  C               2   up:     0.511   1.490   0.000   0.000   2.001    -0.003       -0.000
+                  2   dn:     0.511   1.491   0.000   0.000   2.001
+  C               3   up:     0.514   1.489   0.000   0.000   2.003    -0.006       -0.000
+                  3   dn:     0.514   1.489   0.000   0.000   2.003
+  C               4   up:     0.512   1.492   0.000   0.000   2.003    -0.007        0.000
+                  4   dn:     0.512   1.492   0.000   0.000   2.003
+  C               5   up:     0.512   1.491   0.000   0.000   2.003    -0.006        0.000
+                  5   dn:     0.512   1.491   0.000   0.000   2.003
+  C               6   up:     0.512   1.491   0.000   0.000   2.003    -0.006        0.000
+                  6   dn:     0.512   1.491   0.000   0.000   2.003
+  C               7   up:     0.513   1.491   0.000   0.000   2.003    -0.007        0.000
+                  7   dn:     0.513   1.490   0.000   0.000   2.003
+  C               8   up:     0.514   1.487   0.000   0.000   2.001    -0.002        0.000
+                  8   dn:     0.514   1.487   0.000   0.000   2.001
+  C               9   up:     0.512   1.490   0.000   0.000   2.002    -0.003        0.000
+                  9   dn:     0.512   1.490   0.000   0.000   2.002
+  C              10   up:     0.512   1.494   0.000   0.000   2.005    -0.011       -0.000
+                 10   dn:     0.512   1.494   0.000   0.000   2.005
+  C              11   up:     0.545   1.512   0.000   0.000   2.057    -0.114       -0.000
+                 11   dn:     0.545   1.512   0.000   0.000   2.057
+  C              12   up:     0.510   1.493   0.000   0.000   2.004    -0.007        0.000
+                 12   dn:     0.510   1.493   0.000   0.000   2.004
+  C              13   up:     0.510   1.494   0.000   0.000   2.004    -0.008        0.000
+                 13   dn:     0.510   1.494   0.000   0.000   2.004
+  C              14   up:     0.514   1.489   0.000   0.000   2.003    -0.006        0.000
+                 14   dn:     0.514   1.489   0.000   0.000   2.003
+  C              15   up:     0.511   1.490   0.000   0.000   2.001    -0.003        0.000
+                 15   dn:     0.511   1.490   0.000   0.000   2.001
+  C              16   up:     0.514   1.487   0.000   0.000   2.001    -0.002        0.000
+                 16   dn:     0.514   1.487   0.000   0.000   2.001
+  C              17   up:     0.514   1.487   0.000   0.000   2.001    -0.002        0.000
+                 17   dn:     0.514   1.487   0.000   0.000   2.001
+  C              18   up:     0.511   1.490   0.000   0.000   2.001    -0.002        0.000
+                 18   dn:     0.511   1.490   0.000   0.000   2.001
+  C              19   up:     0.514   1.489   0.000   0.000   2.003    -0.006        0.000
+                 19   dn:     0.514   1.489   0.000   0.000   2.003
+  C              20   up:     0.510   1.494   0.000   0.000   2.004    -0.008       -0.000
+                 20   dn:     0.510   1.494   0.000   0.000   2.004
+  C              21   up:     0.510   1.493   0.000   0.000   2.004    -0.007       -0.000
+                 21   dn:     0.510   1.493   0.000   0.000   2.004
+  C              22   up:     0.545   1.512   0.000   0.000   2.057    -0.114       -0.000
+                 22   dn:     0.545   1.512   0.000   0.000   2.057
+  C              23   up:     0.512   1.494   0.000   0.000   2.005    -0.011        0.000
+                 23   dn:     0.512   1.494   0.000   0.000   2.005
+  C              24   up:     0.512   1.490   0.000   0.000   2.002    -0.003        0.000
+                 24   dn:     0.512   1.490   0.000   0.000   2.002
+  C              25   up:     0.514   1.487   0.000   0.000   2.001    -0.002        0.000
+                 25   dn:     0.514   1.487   0.000   0.000   2.001
+  C              26   up:     0.513   1.490   0.000   0.000   2.003    -0.007        0.000
+                 26   dn:     0.513   1.490   0.000   0.000   2.003
+  C              27   up:     0.512   1.491   0.000   0.000   2.003    -0.006        0.000
+                 27   dn:     0.512   1.491   0.000   0.000   2.003
+  C              28   up:     0.512   1.491   0.000   0.000   2.003    -0.006        0.000
+                 28   dn:     0.512   1.491   0.000   0.000   2.003
+  C              29   up:     0.512   1.492   0.000   0.000   2.003    -0.006        0.000
+                 29   dn:     0.512   1.492   0.000   0.000   2.003
+  C              30   up:     0.514   1.489   0.000   0.000   2.003    -0.006       -0.000
+                 30   dn:     0.514   1.489   0.000   0.000   2.003
+  C              31   up:     0.511   1.490   0.000   0.000   2.001    -0.003       -0.000
+                 31   dn:     0.511   1.491   0.000   0.000   2.001
+  C              32   up:     0.512   1.490   0.000   0.000   2.001    -0.003       -0.000
+                 32   dn:     0.512   1.490   0.000   0.000   2.001
+==============================================================================================
+ 
+                 Bond                   Population        Spin       Length (A)
+================================================================================
+               H 1 -- C 22                   0.23        -0.00          1.33767
+               H 1 -- C 11                   0.23        -0.00          1.33770
+              C 6  -- C 27                   1.10         0.00          1.41480
+              C 7  -- C 10                   1.10         0.00          1.41486
+              C 23 -- C 26                   1.10         0.00          1.41494
+              C 2  -- C 31                   1.07         0.00          1.41684
+              C 15 -- C 18                   1.06         0.00          1.41710
+              C 1  -- C 12                   1.10         0.00          1.41801
+              C 21 -- C 32                   1.10         0.00          1.41805
+              C 9  -- C 20                   1.10         0.00          1.41814
+              C 13 -- C 24                   1.10         0.00          1.41826
+              C 29 -- C 30                   1.09        -0.00          1.41829
+              C 3  -- C 4                    1.09        -0.00          1.41830
+              C 5  -- C 14                   1.09        -0.00          1.42013
+              C 19 -- C 28                   1.09         0.00          1.42028
+              C 2  -- C 25                   1.09        -0.00          1.42031
+              C 8  -- C 31                   1.09        -0.00          1.42033
+              C 17 -- C 18                   1.09        -0.00          1.42089
+              C 15 -- C 16                   1.09        -0.00          1.42091
+              C 19 -- C 20                   1.08        -0.00          1.42195
+              C 13 -- C 14                   1.08        -0.00          1.42200
+              C 3  -- C 12                   1.08         0.00          1.42270
+              C 21 -- C 30                   1.08         0.00          1.42274
+              C 1  -- C 2                    1.06        -0.00          1.42285
+              C 31 -- C 32                   1.06        -0.00          1.42287
+              C 15 -- C 24                   1.06        -0.00          1.42457
+              C 9  -- C 18                   1.06         0.00          1.42469
+              C 8  -- C 29                   1.07         0.00          1.42745
+              C 4  -- C 25                   1.07         0.00          1.42747
+              C 27 -- C 28                   1.06        -0.00          1.42857
+              C 17 -- C 28                   1.07         0.00          1.42859
+              C 5  -- C 6                    1.06        -0.00          1.42861
+              C 5  -- C 16                   1.07         0.00          1.42867
+              C 4  -- C 27                   1.05        -0.00          1.42882
+              C 6  -- C 29                   1.05         0.00          1.42887
+              C 9  -- C 10                   1.06        -0.00          1.42959
+              C 23 -- C 24                   1.06        -0.00          1.42962
+              C 23 -- C 32                   1.05        -0.00          1.43020
+              C 1  -- C 10                   1.05        -0.00          1.43030
+              C 25 -- C 26                   1.06        -0.00          1.43298
+              C 7  -- C 8                    1.06        -0.00          1.43298
+              C 17 -- C 26                   1.05         0.00          1.43485
+              C 7  -- C 16                   1.05         0.00          1.43486
+              C 19 -- C 30                   1.04         0.00          1.43693
+              C 3  -- C 14                   1.04         0.00          1.43701
+              C 21 -- C 22                   1.02        -0.00          1.44085
+              C 11 -- C 12                   1.02        -0.00          1.44086
+              C 13 -- C 22                   1.02         0.00          1.44226
+              C 11 -- C 20                   1.02         0.00          1.44231
+              C 11 -- C 22                   0.82        -0.00          1.48445
+               H 1 -- C 21                  -0.09        -0.00          2.25926
+               H 1 -- C 12                  -0.09         0.00          2.25943
+               H 1 -- C 20                  -0.09         0.00          2.25946
+               H 1 -- C 13                  -0.09         0.00          2.25953
+              C 2  -- C 12                  -0.18        -0.00          2.45107
+              C 21 -- C 31                  -0.18         0.00          2.45115
+              C 13 -- C 15                  -0.18         0.00          2.45123
+              C 18 -- C 20                  -0.18         0.00          2.45123
+              C 18 -- C 24                  -0.18         0.00          2.45193
+              C 9  -- C 15                  -0.18         0.00          2.45196
+              C 2  -- C 32                  -0.18        -0.00          2.45232
+              C 1  -- C 31                  -0.18         0.00          2.45235
+              C 4  -- C 12                  -0.19         0.00          2.45280
+              C 21 -- C 29                  -0.19        -0.00          2.45293
+              C 5  -- C 13                  -0.19        -0.00          2.45401
+              C 20 -- C 28                  -0.19         0.00          2.45410
+              C 3  -- C 25                  -0.18         0.00          2.45813
+              C 1  -- C 25                  -0.18        -0.00          2.45822
+              C 8  -- C 30                  -0.18        -0.00          2.45824
+              C 8  -- C 32                  -0.18        -0.00          2.45843
+              C 6  -- C 28                  -0.18        -0.00          2.46039
+              C 5  -- C 27                  -0.18        -0.00          2.46042
+              C 14 -- C 16                  -0.18         0.00          2.46046
+              C 17 -- C 19                  -0.18         0.00          2.46054
+              C 16 -- C 24                  -0.18         0.00          2.46166
+              C 9  -- C 17                  -0.18        -0.00          2.46179
+              C 1  -- C 7                   -0.18         0.00          2.46261
+              C 27 -- C 29                  -0.18         0.00          2.46266
+              C 26 -- C 32                  -0.18         0.00          2.46268
+              C 4  -- C 6                   -0.18        -0.00          2.46268
+              C 1  -- C 11                  -0.18        -0.00          2.46377
+              C 22 -- C 32                  -0.18        -0.00          2.46385
+              C 9  -- C 11                  -0.18         0.00          2.46405
+              C 22 -- C 24                  -0.18         0.00          2.46413
+              C 24 -- C 26                  -0.18        -0.00          2.46437
+              C 7  -- C 9                   -0.18         0.00          2.46441
+              C 2  -- C 26                  -0.18         0.00          2.46471
+              C 7  -- C 31                  -0.18        -0.00          2.46476
+              C 10 -- C 16                  -0.18         0.00          2.46480
+              C 17 -- C 23                  -0.18         0.00          2.46495
+              C 23 -- C 25                  -0.18         0.00          2.46648
+              C 8  -- C 10                  -0.18        -0.00          2.46649
+              C 2  -- C 8                   -0.17         0.00          2.46670
+              C 25 -- C 31                  -0.17         0.00          2.46678
+              C 15 -- C 17                  -0.17        -0.00          2.46817
+              C 16 -- C 18                  -0.17        -0.00          2.46820
+              C 18 -- C 26                  -0.18         0.00          2.46836
+              C 7  -- C 15                  -0.18        -0.00          2.46842
+              C 19 -- C 29                  -0.18         0.00          2.46862
+              C 4  -- C 14                  -0.18        -0.00          2.46868
+              C 28 -- C 30                  -0.18        -0.00          2.46902
+              C 3  -- C 5                   -0.18         0.00          2.46905
+              C 3  -- C 27                  -0.17        -0.00          2.46983
+              C 6  -- C 30                  -0.17         0.00          2.46993
+              C 6  -- C 14                  -0.17         0.00          2.47217
+              C 19 -- C 27                  -0.17        -0.00          2.47233
+              C 23 -- C 31                  -0.17        -0.00          2.47280
+              C 2  -- C 10                  -0.17         0.00          2.47288
+              C 21 -- C 23                  -0.18         0.00          2.47358
+              C 10 -- C 12                  -0.18         0.00          2.47364
+              C 4  -- C 26                  -0.18        -0.00          2.47387
+              C 10 -- C 20                  -0.18        -0.00          2.47393
+              C 13 -- C 23                  -0.18         0.00          2.47400
+              C 7  -- C 29                  -0.18         0.00          2.47408
+              C 15 -- C 23                  -0.17        -0.00          2.47456
+              C 10 -- C 18                  -0.17         0.00          2.47457
+              C 6  -- C 8                   -0.18        -0.00          2.47502
+              C 25 -- C 27                  -0.18         0.00          2.47519
+              C 3  -- C 11                  -0.17        -0.00          2.47523
+              C 17 -- C 27                  -0.18        -0.00          2.47524
+              C 22 -- C 30                  -0.17         0.00          2.47537
+              C 6  -- C 16                  -0.18        -0.00          2.47542
+              C 29 -- C 31                  -0.17         0.00          2.47553
+              C 14 -- C 22                  -0.17        -0.00          2.47563
+              C 11 -- C 19                  -0.17        -0.00          2.47567
+              C 30 -- C 32                  -0.17         0.00          2.47569
+              C 2  -- C 4                   -0.17         0.00          2.47577
+              C 1  -- C 3                   -0.17         0.00          2.47581
+              C 5  -- C 7                   -0.18         0.00          2.47601
+              C 26 -- C 28                  -0.18         0.00          2.47605
+              C 18 -- C 28                  -0.17        -0.00          2.47615
+              C 5  -- C 15                  -0.17        -0.00          2.47632
+              C 4  -- C 28                  -0.17         0.00          2.47634
+              C 9  -- C 19                  -0.17         0.00          2.47643
+              C 5  -- C 29                  -0.17        -0.00          2.47645
+              C 14 -- C 24                  -0.17        -0.00          2.47658
+              C 24 -- C 32                  -0.17         0.00          2.47669
+              C 1  -- C 9                   -0.17        -0.00          2.47672
+              C 8  -- C 16                  -0.17         0.00          2.48590
+              C 17 -- C 25                  -0.17        -0.00          2.48591
+              C 19 -- C 21                  -0.17         0.00          2.48783
+              C 12 -- C 14                  -0.17         0.00          2.48800
+              C 20 -- C 30                  -0.17        -0.00          2.48832
+              C 3  -- C 13                  -0.17        -0.00          2.48833
+              C 13 -- C 21                  -0.15        -0.00          2.50589
+              C 12 -- C 20                  -0.15        -0.00          2.50597
+              C 11 -- C 21                  -0.19         0.00          2.52652
+              C 12 -- C 22                  -0.19        -0.00          2.52656
+              C 20 -- C 22                  -0.19         0.00          2.52657
+              C 11 -- C 13                  -0.19         0.00          2.52659
+              C 12 -- C 25                  -0.11        -0.00          2.81923
+              C 8  -- C 21                  -0.11        -0.00          2.81963
+              C 13 -- C 16                  -0.11         0.00          2.82120
+              C 17 -- C 20                  -0.11        -0.00          2.82133
+              C 10 -- C 15                  -0.10         0.00          2.83956
+              C 18 -- C 23                  -0.10        -0.00          2.83966
+              C 28 -- C 29                  -0.10         0.00          2.83989
+              C 4  -- C 5                   -0.10         0.00          2.84001
+              C 2  -- C 23                  -0.10        -0.00          2.84031
+              C 10 -- C 31                  -0.10        -0.00          2.84046
+              C 9  -- C 16                  -0.10        -0.00          2.84342
+              C 17 -- C 24                  -0.10        -0.00          2.84342
+              C 1  -- C 8                   -0.10        -0.00          2.84439
+              C 25 -- C 32                  -0.10         0.00          2.84444
+              C 10 -- C 11                  -0.10        -0.00          2.84499
+              C 22 -- C 23                  -0.10         0.00          2.84504
+              C 2  -- C 7                   -0.10        -0.00          2.85118
+              C 26 -- C 31                  -0.10        -0.00          2.85128
+              C 14 -- C 27                  -0.10        -0.00          2.85224
+              C 6  -- C 19                  -0.10        -0.00          2.85239
+              C 30 -- C 31                  -0.10         0.00          2.85293
+              C 2  -- C 3                   -0.10         0.00          2.85314
+              C 18 -- C 19                  -0.10         0.00          2.85317
+              C 14 -- C 15                  -0.10         0.00          2.85328
+              C 3  -- C 6                   -0.10        -0.00          2.85352
+              C 27 -- C 30                  -0.10        -0.00          2.85355
+              C 26 -- C 27                  -0.10         0.00          2.85543
+              C 6  -- C 7                   -0.10        -0.00          2.85547
+              C 29 -- C 32                  -0.10        -0.00          2.85551
+              C 1  -- C 4                   -0.10        -0.00          2.85562
+              C 15 -- C 26                  -0.10        -0.00          2.85674
+              C 7  -- C 18                  -0.10        -0.00          2.85684
+              C 9  -- C 28                  -0.10        -0.00          2.85835
+              C 5  -- C 24                  -0.10        -0.00          2.85838
+              C 4  -- C 17                  -0.10        -0.00          2.86235
+               H 1 -- C 14                  -0.02        -0.00          2.86243
+               H 1 -- C 19                  -0.02         0.00          2.86249
+              C 16 -- C 29                  -0.10        -0.00          2.86267
+              C 5  -- C 8                   -0.10         0.00          2.86291
+              C 25 -- C 28                  -0.10         0.00          2.86311
+               H 1 -- C 3                   -0.02        -0.00          2.86324
+               H 1 -- C 30                  -0.02         0.00          2.86334
+              C 21 -- C 24                  -0.09        -0.00          2.86606
+              C 9  -- C 12                  -0.09        -0.00          2.86608
+              C 1  -- C 20                  -0.09        -0.00          2.86717
+              C 13 -- C 32                  -0.09        -0.00          2.86717
+              C 19 -- C 22                  -0.08        -0.00          2.87348
+              C 11 -- C 14                  -0.08         0.00          2.87352
+              C 3  -- C 22                  -0.08        -0.00          2.87484
+              C 11 -- C 30                  -0.08         0.00          2.87499
+              C 20 -- C 21                  -0.07         0.00          2.90026
+              C 12 -- C 13                  -0.07        -0.00          2.90040
+================================================================================
+ 
+
+Writing analysis data to 4x4.castep_bin
+
+Writing model to 4x4.check
+ 
+ A BibTeX formatted list of references used in this run has been written to 
+ 4x4.bib
+ 
+Initialisation time =      2.91 s
+Calculation time    =   4362.54 s
+Finalisation time   =      3.57 s
+Total time          =   4369.02 s
+Peak Memory Use     = 1014860 kB
+  
+Overall parallel efficiency rating: Mediocre (51%)                              
+  
+Data was distributed by:-
+G-vector (16-way); efficiency rating: Mediocre (52%)                            
+k-point (8-way); efficiency rating: Excellent (94%)                             

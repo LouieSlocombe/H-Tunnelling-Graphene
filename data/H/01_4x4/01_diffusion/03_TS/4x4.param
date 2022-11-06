@@ -1,0 +1,35 @@
+! General
+TASK : TRANSITIONSTATESEARCH
+WRITE_CELL_STRUCTURE: True
+OPT_STRATEGY : SPEED
+
+! Transition State search
+TSSEARCH_LSTQST_PROTOCOL:CompleteLSTQST
+TSSEARCH_QST_MAX_ITER: 60
+TSSEARCH_CG_MAX_ITER : 60
+TSSEARCH_METHOD : LSTQST
+TSSEARCH_FORCE_TOL = 0.005 hartree/bohr !change
+
+! Exchange Correlation Parameters
+XC_FUNCTIONAL : PBE
+
+! Basis Set Parameters
+CUT_OFF_ENERGY	800.0 eV
+FINITE_BASIS_CORR	0
+
+! Density Mixing Parameters
+MIXING_SCHEME : Pulay
+
+! Electronic Parameters
+SEDC_APPLY: TRUE
+SEDC_SCHEME: MBD*
+PERC_EXTRA_BANDS : 50
+
+! Electronic Minimization Parameters
+MAX_SCF_CYCLES : 200
+ELEC_ENERGY_TOL	1e-5
+
+! Geometry Optimisation
+GEOM_MAX_ITER : 100
+GEOM_FORCE_TOL : 0.01
+
